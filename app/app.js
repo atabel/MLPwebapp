@@ -22,7 +22,7 @@ var App = (function(lng, undefined) {
     	}
         if (! lng.Core.environment().isMobile) {
             $$("#share-btn").hide();
-            $$("body").addClass("notmobile");
+            $$("body").addClass("not-mobile");
         }
     });
 
