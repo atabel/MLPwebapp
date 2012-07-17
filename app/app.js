@@ -20,6 +20,10 @@ var App = (function(lng, undefined) {
     		$$("#section-prima-country footer").addClass("transparent-footer");
     		$$("body").addClass("free-version");
     	}
+        if (! lng.Core.environment().isMobile) {
+            $$("#share-btn").hide();
+            $$("body").addClass("notmobile");
+        }
     });
 
     return {
