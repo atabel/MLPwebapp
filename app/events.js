@@ -190,7 +190,7 @@ App.Events = (function(lng, app, undefined) {
 		var country = lng.Data.Cache.get("current_country");
 		app.Services.loadPrimaHistory(country.country_code, 7, function(history){
 			var $chart = $$("#prima-chart");
-			$chart.hide().text(history.join());
+			$chart.hide().text(history.reverse().join());
 			$chart.peity("line");
 			$chart.show();
 		});
