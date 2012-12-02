@@ -53,35 +53,53 @@
 
 <body class="app">
 
-	<section id="section-main" data-transition="slide">
-		<header data-title="Mira la Prima">
-<!-- 			<a href="#aside-example" data-router="aside" data-icon="files" -->
-<!-- 				class="button left">Aside</a> -->
-      <nav class="right">
-        <a href="#menu-main" data-router="aside" data-icon="items" data-label="Menú"></a>
+  <section id="section-main" data-transition="slide">
+    <header data-title="Mira la Prima">
+      <nav class="right box">
+        <a href="#menu-main" data-router="aside" data-icon="menu" data-label="Menú"></a>
       </nav>
-		</header>
+    </header>
     <footer class="toolbar with-labels">
       <nav>
         <a id="all-primas-tab-btn" href="#all-primas" data-router="article" class="current" data-label="Todos" data-icon="folder"></a>
         <a id="favourites-tab-btn" href="#favourite-primas" data-router="article" data-label="Favoritos" data-icon="star"></a>
       </nav>
     </footer>
-		
-		<article id="all-primas" class="list scrollable">
-		</article>
-		<article id="favourite-primas" class="list scrollable">
-		</article>
+    
+    <article id="all-primas" class="list scrollable">
+    </article>
+    <article id="favourite-primas" class="list scrollable">
+    </article>
 
-	</section>
+  </section>
   
-	<aside id="menu-prima-country" class="right">
+  <aside id="menu-prima-country" class="right">
     <article class="list">
         <ul>
-            <li><a id="add-to-fav-btn" href="#" data-icon="star">Añadir a Favoritos</a></li>
-            <li><a id="photo-provider-link" href="#" data-icon="picture">Origen de la foto</a></li>
-            <li><a id="share-your-prima-btn" href="#section-upload-prima" data-router="section" data-icon="upload">Sube a tu prima</a></li>
-            <li><a id="share-btn" href="#" data-icon="icon-rss"><abbr>Comparte esta prima</abbr></a></li>
+            <li>
+              <a id="add-to-fav-btn" href="#" data-icon="star">
+                <strong>Añadir a Favoritos</strong>
+                <small>Añade este país a favoritos</small>
+              </a>
+            </li>
+            <li>
+              <a id="photo-provider-link" href="#" data-icon="picture">
+                <strong>Origen de la foto</strong>
+                <small>Página de donde viene la foto</small>
+              </a>
+            </li>
+            <li>
+              <a id="share-your-prima-btn" href="#section-upload-prima" data-router="section" data-icon="upload">
+                <strong>Sube a tu prima</strong>
+                <small>Comparte una foto de un pivón</small>
+              </a>
+            </li>
+            <li>
+              <a id="share-btn" href="#" data-icon="icon-rss">
+                <strong>Comparte esta prima</strong>
+                <small>Comparte esta foto con tus amigos</small>
+              </a>
+            </li>
         </ul>
     </article>
   </aside>
@@ -118,7 +136,7 @@
     </div>
   </script>
   
-  <script id="country-li-tpl" type="text/html">
+  <!-- <script id="country-li-tpl" type="text/html">
     <li class="country-li" data-icon="user" data-country-code="{{country_code}}">
       <a href="#section-prima-country" data-router="section" data-country="{{country_code}}">
         <img src="assets/images/flags/{{country_code}}.png" class="icon" />
@@ -126,43 +144,43 @@
         <span class="right bubble red li-prima-value">{{prima_value}}</span>
       </a>
     </li>
-  </script>
+  </script> -->
 
   <!-- weinre  -->
 <!--   <script src="http://192.168.1.132:8080/target/target-script-min.js"></script> -->
   <!-- underscore -->
   <script src="assets/javascripts/underscore-min.js"></script>
-	<!-- Lungo - Dependencies -->
+  <!-- Lungo - Dependencies -->
   <script src="components/quojs/quo.js"></script>
   <script src="components/lungo/lungo.js"></script>
   <script src="components/monocle/monocle.js"></script>
-	
-  <!-- 	peity, js chart lib  -->
-	<script src="assets/javascripts/quo.peity.min.js"></script>
-	
-	<!-- HW events -->
-	<script src="assets/javascripts/hwevents.js"></script>
-	<!-- Pull down to refress scroll-->
+  
+  <!--  peity, js chart lib  -->
+  <script src="assets/javascripts/quo.peity.min.js"></script>
+  
+  <!-- HW events -->
+  <script src="assets/javascripts/hwevents.js"></script>
+  <!-- Pull down to refress scroll-->
   <script src="assets/javascripts/pdrscroll.js"></script>
-  <!-- 	ICS fixes -->
+  <!--  ICS fixes -->
   <!-- <script src="assets/javascripts/ICSfixes.js"></script> -->
-	
-	<!-- LungoJS - Sandbox App -->
-	<script src="app/app.js"></script>
-	<!-- <script src="app/data.js"></script>
-	<script src="app/events.js"></script>
-	<script src="app/services.js"></script>
-	<script src="app/view.js"></script>
-	<script src="app/photomanager.js"></script>
-	<script src="app/utils.js"></script>-->
+  
+  <!-- LungoJS - Sandbox App -->
+  <script src="app/app.js"></script>
+  <!-- <script src="app/data.js"></script>
+  <script src="app/events.js"></script>
+  <script src="app/services.js"></script>
+  <script src="app/view.js"></script>
+  <script src="app/photomanager.js"></script>
+  <script src="app/utils.js"></script>-->
   <script src="app/device.js"></script> 
 
   <script src="app/monocle/model/country.js"></script>
   <script src="app/monocle/view/Countryli.js"></script>
   <script src="app/monocle/controller/CountryLstCtrl.js"></script>
 
-<!-- 	production mode app -->
+<!--  production mode app -->
 <!--   <script src="app/fullapp.min.js"></script> -->
-	
+  
 </body>
 </html>
