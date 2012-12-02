@@ -11,4 +11,4 @@ App.Utils.Valid = (function(lng, app, undefined) {
 		isURL: isURL
 	}
 	
-})(LUNGO, App);
+})(Lungo, App);

@@ -9,7 +9,7 @@ App.Events = (function(lng, app, undefined) {
 		console.log("*****LUNGO INIT DONE*****");
 		// init favourites counter:
 		lng.Data.Sql.select("favourites", null, function(favourites) {
-			lng.View.Element.count('#favourites-tab-btn', favourites.length);
+			lng.Element.count('#favourites-tab-btn', favourites.length);
 		});
 		// load countries list:
 		app.Data.getCountriesList(app.View.viewCountriesList, true);
@@ -229,4 +229,4 @@ App.Events = (function(lng, app, undefined) {
 
 	}
 
-})(LUNGO, App);
+})(Lungo, App);

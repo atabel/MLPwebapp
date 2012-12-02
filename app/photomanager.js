@@ -114,4 +114,4 @@ App.PhotoManager = (function (lng, app, undefined) {
 		has: has
 	}
 	
-})(LUNGO, App);
+})(Lungo, App);

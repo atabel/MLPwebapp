@@ -2,16 +2,14 @@
 var App = (function(lng, undefined) {
 
     //Define the LungoJS Application Instance
-    lng.App.init({
+    lng.init({
         name: 'Mira la Prima',
-        version: '0.1',
-        resources: {
-            sections: [
-                "country.html",
-                "uploadprima.html",
-                "about.html"
-            ]
-        }
+        version: '2.0',
+        resources: [
+            "app/resources/sections/country.html",
+            "app/resources/sections/uploadprima.html",
+            "app/resources/sections/about.html"
+        ]
     });
     
     lng.ready(function(){
@@ -30,6 +28,6 @@ var App = (function(lng, undefined) {
 
     };
 
-})(LUNGO);
+})(Lungo);
 
 

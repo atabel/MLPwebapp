@@ -4,10 +4,10 @@ App.View = (function(lng, app, undefined) {
 	
 	//create templates
 	var prima_tpl_markup = lng.dom("#prima-tpl").text();
-	lng.View.Template.create('prima-tpl', prima_tpl_markup);
+	// lng.View.Template.create('prima-tpl', prima_tpl_markup);
 	
 	var country_li_markup = lng.dom("#country-li-tpl").text();
-	lng.View.Template.create('country-li-tpl', country_li_markup);
+	// lng.View.Template.create('country-li-tpl', country_li_markup);
 	
 	
 	var viewCountry = function (country_data) {
@@ -84,7 +84,7 @@ App.View = (function(lng, app, undefined) {
 			}
 		} else if (count > 0) {
 			console.log("initialicing counter to ", count);
-			lng.View.Element.count('#favourites-tab-btn', count);
+			lng.Element.count('#favourites-tab-btn', count);
 		}
 		var config = {
 		    el: '#favourite-primas',
@@ -111,9 +111,9 @@ App.View = (function(lng, app, undefined) {
 		        type: 'desc'
 		    }
 		};
-		lng.View.Template.List.create(config);
+		// lng.View.Template.List.create(config);
 		//pull down to refresh:
-		pdrscroll.init("all-primas");
+		// pdrscroll.init("all-primas");
 	};
 	
 	var setCountryView = function (viewMode) {
@@ -171,4 +171,4 @@ App.View = (function(lng, app, undefined) {
     	setCountryView: setCountryView
     }
 
-})(LUNGO, App);
+})(Lungo, App);

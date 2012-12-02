@@ -101,4 +101,4 @@ var pdrscroll = (function(lng) {
 		refresh: refresh
 	}
 	
-})(LUNGO)
+})(Lungo)

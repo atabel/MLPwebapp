@@ -34,7 +34,7 @@ App.Services = (function(lng, app, undefined) {
 		
 	var getCountriesList = function (callback) {
 //		console.log("Services.getCountriesList");
-		lng.Sugar.Growl.show ('Cargando', '',  'loading', true, 0);
+		lng.Notification.show ('Cargando', '',  'loading', true, 0);
 	    return $$.get(LOAD_PRIMA_URL,
 	    	{
 	    		callback: '?'
@@ -42,14 +42,14 @@ App.Services = (function(lng, app, undefined) {
 	    	function (countries_list) {
 //	    		console.log("Services.getCountriesList RES:", countries_list);
 	    		callback(countries_list);
-	    		lng.Sugar.Growl.hide();
+	    		lng.Notification.hide();
 	    	},
 	    	"json"
 	    );
 	};
 	
 	var loadPrimaValue = function (country_code, callback) {
-		lng.Sugar.Growl.show ('Cargando', '',  'loading', true, 0);
+		lng.Notification.show ('Cargando', '',  'loading', true, 0);
 //		console.log("haciendo llamada al servidor REQUEST: ", country_code);
 		return $$.get(LOAD_PRIMA_URL,
 	    	{
@@ -125,4 +125,4 @@ App.Services = (function(lng, app, undefined) {
 		loadPrimaHistory: loadPrimaHistory
 	}
 
-})(LUNGO, App);
+})(Lungo, App);
