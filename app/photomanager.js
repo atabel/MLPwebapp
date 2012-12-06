@@ -9,7 +9,7 @@ App.PhotoManager = (function (lng, app, undefined) {
 	var addPhotos = function (photos) {
 		if (! _.isArray(photos)) {
 			photos = [photos];
-		} 
+		}
 		
 		_.each(photos, function(p) {
 			_addPhoto(p);
@@ -23,7 +23,7 @@ App.PhotoManager = (function (lng, app, undefined) {
 		recur_times = recur_times || 0;
 		
 		var ret_list = _.filter(_photoList, function(p) {
-			return p.viewed == false;
+			return ! p.viewed;
 		});
 		
 		if (country_code) {
@@ -33,7 +33,7 @@ App.PhotoManager = (function (lng, app, undefined) {
 			});
 		}
 		console.log("_photoList_filtered:", ret_list);
-		if (ret_list.length == 0) {
+		if (ret_list.length === 0) {
 			if (recur_times > 2) {
 				console.log("recurtimes exceded", recur_times, _photoList.length);
 				_markAllAsUnviewed();
@@ -112,6 +112,6 @@ App.PhotoManager = (function (lng, app, undefined) {
 		addPhotos : addPhotos,
 		getPhoto: getPhoto,
 		has: has
-	}
+	};
 	
 })(Lungo, App);

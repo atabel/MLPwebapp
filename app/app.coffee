@@ -1,6 +1,6 @@
 root = exports ? this
 
-root.App = ((lng) ->
+root.App = do (lng = Lungo) ->
     #Define the LungoJS Application Instance
     lng.init
         name: "Mira la Prima"
@@ -43,4 +43,3 @@ root.App = ((lng) ->
     #     'load section#section-upload-prima': -> console.error "loaded section"
 
     {}
-)(Lungo)
