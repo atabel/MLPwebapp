@@ -11,16 +11,47 @@
       resources: ["app/resources/sections/country.html", "app/resources/sections/uploadprima.html", "app/resources/sections/about.html"]
     });
     lng.ready(function() {
+      var i, _i, _results;
       if (root.Device.isFree()) {
         $$("#section-prima-country .country-view-mode").hide();
         $$("#section-prima-country footer").addClass("transparent-footer");
         $$("body").addClass("free-version");
       }
-      if (!lng.Core.environment().isMobile) {
-        $$("#share-btn").parent().hide();
-        return $$("body").addClass("not-mobile");
+      root.App.Services.getCountriesList(function(countries) {
+        var country, _i, _len, _results;
+        console.log("all the countries: ", countries);
+        _results = [];
+        for (_i = 0, _len = countries.length; _i < _len; _i++) {
+          country = countries[_i];
+          _results.push(__Model.Country.create(country));
+        }
+        return _results;
+      });
+      root.carousel_example = Lungo.Sugar.Carousel($$('[data-control=carousel]')[0], function(index, element) {
+        var count_slides;
+        count_slides = $$('[data-control=carousel] img').length;
+        if (index === (count_slides - 2)) {
+          return root.App.PhotoManager.getPhoto(null, function(photo) {
+            var new_slide;
+            new_slide = "<div align='center'>" + photo.img.outerHTML + "</div>";
+            return root.carousel_example.append(new_slide);
+          });
+        }
+      });
+      _results = [];
+      for (i = _i = 0; _i <= 5; i = ++_i) {
+        _results.push(root.App.PhotoManager.getPhoto(null, function(photo) {
+          var new_slide;
+          new_slide = "<div align='center'>" + photo.img.outerHTML + "</div>";
+          return root.carousel_example.append(new_slide);
+        }));
       }
+      return _results;
     });
+    if (!lng.Core.environment().isMobile) {
+      $$("#share-btn").parent().hide();
+      $$("body").addClass("not-mobile");
+    }
     return {};
   })(Lungo);
 

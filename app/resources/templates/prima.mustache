@@ -1,0 +1,26 @@
+<div class="prima-wrap">
+	<div>
+		<strong class="prima-value">{{prima_value}}</strong>
+	</div>
+	<div id="prima-numbers">
+		<span class="prima-delta {{^is_growing}}negative-val{{/is_growing}} {{#is_growing}}positive-val{{/is_growing}} ">
+			{{#is_growing}}
+			<span class="icon up"></span>
+			{{/is_growing}}
+			{{^is_growing}}
+			<span class="icon down"></span>
+			{{/is_growing}}
+			{{prima_delta_abs}}
+		</span>
+		<span class="prima-percent {{^is_growing}}negative-val{{/is_growing}} {{#is_growing}}positive-val{{/is_growing}} ">
+			{{#is_growing}}
+			<span class="icon up"></span>
+			{{/is_growing}}
+			{{^is_growing}}
+			<span class="icon down"></span>
+			{{/is_growing}}
+			{{prima_percent_abs}}
+		</span>
+	</div>
+	<div id="prima-chart"></div>
+</div>

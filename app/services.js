@@ -20,7 +20,7 @@ App.Services = (function(lng, app, undefined) {
 				var now = new Date();
 				now.setMinutes(now.getMinutes() - MINUTES_CONNECTION_ERROR);
 				if (now > _lastTimeShownConnectionError) {
-					lng.Sugar.Growl.show("Error", "Comprueba tu conexión", "warning", false, 2);
+					lng.Notification.show("Error", "Comprueba tu conexión", "warning", false, 2);
 					_lastTimeShownConnectionError = new Date();
 				}
 				setTimeout(function() {xhr.abort();}, 100);
@@ -34,7 +34,7 @@ App.Services = (function(lng, app, undefined) {
 		
 	var getCountriesList = function (callback) {
 //		console.log("Services.getCountriesList");
-		lng.Notification.show ('Cargando', '',  'loading', true, 0);
+		lng.Notification.show ('Cargando', '',  'refresh', true, 0);
 	    return $$.get(LOAD_PRIMA_URL,
 	    	{
 	    		callback: '?'
@@ -49,7 +49,7 @@ App.Services = (function(lng, app, undefined) {
 	};
 	
 	var loadPrimaValue = function (country_code, callback) {
-		lng.Notification.show ('Cargando', '',  'loading', true, 0);
+		lng.Notification.show ('Cargando', '',  'refresh', true, 0);
 //		console.log("haciendo llamada al servidor REQUEST: ", country_code);
 		return $$.get(LOAD_PRIMA_URL,
 	    	{
@@ -59,7 +59,7 @@ App.Services = (function(lng, app, undefined) {
 	    	function (prima_data) {
 //	    		console.log("RESPONSE: ", prima_data);
 	    		callback(prima_data);
-	    		lng.Sugar.Growl.hide();
+	    		lng.Notification.hide();
 	    	},
 	    	"json"
 	    );
@@ -78,7 +78,7 @@ App.Services = (function(lng, app, undefined) {
 	
 	
 	var uploadPrimaPicture = function (url, callback) {
-		lng.Sugar.Growl.show('Subiendo', '',  'upload', true, 0);
+		lng.Notification.show('Subiendo', '',  'upload', true, 0);
 		return $$.get(UPLOAD_PHOTO_URL,
 			{
 				url_moza: url,
@@ -86,9 +86,9 @@ App.Services = (function(lng, app, undefined) {
 			},
 			function (response){
 				if (response && response.result == "OK") {
-					lng.Sugar.Growl.notify("Prima subida", "Si tu prima es aceptada pronto la verás por aquí ;-)", "check", "info", 4);
+					lng.Notification.notify("Prima subida", "Si tu prima es aceptada pronto la verás por aquí ;-)", "check", "info", 4);
 				} else {
-					lng.Sugar.Growl.show("Error", "Ocurrió un error subiendo la prima al servidor", "warning", false, 5);
+					lng.Notification.show("Error", "Ocurrió un error subiendo la prima al servidor", "warning", false, 5);
 				}
 			},
 			"json"
@@ -97,7 +97,7 @@ App.Services = (function(lng, app, undefined) {
 	
 	var loadPrimaHistory = function (country_code, limit, callback) {
 		limit = limit || 7;
-		lng.Sugar.Growl.show ('Cargando', '',  'loading', true, 0);
+		lng.Notification.show ('Cargando', '',  'refresh', true, 0);
 		return $$.get(LOAD_PRIMA_HISTORY_URL,
 	    	{
 	    		country_code: country_code,
@@ -106,7 +106,7 @@ App.Services = (function(lng, app, undefined) {
 	    	},
 	    	function (prima_history) {
 	    		callback(prima_history);
-	    		lng.Sugar.Growl.hide();
+	    		lng.Notification.hide();
 	    	},
 	    	"json"
 	    );
@@ -114,7 +114,7 @@ App.Services = (function(lng, app, undefined) {
 	
 	$$.ajaxSettings.timeout = 10000;
 	$$.ajaxSettings.error = function (xhr, type) {
-		lng.Sugar.Growl.show("Error", "Falló la conexión con el servidor", "warning", false, 3);
+		lng.Notification.show("Error", "Falló la conexión con el servidor", "warning", false, 3);
 	};
 	
 	return {
