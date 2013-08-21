@@ -19,9 +19,9 @@ class __Model.Country extends Monocle.Model
 
 	primaIsGrowing: () -> !!(@prima_delta > 0)
 
-	prima_delta_abs: () -> Math.abs @prima_delta
+	prima_delta_abs: () -> "" + Math.abs @prima_delta
 
-	prima_percent_abs: () -> Math.abs @prima_percent
+	prima_percent_abs: () -> "" + Math.abs @prima_percent
 
 	active: () ->
 		__Model.Country.setActive @

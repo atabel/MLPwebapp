@@ -33,11 +33,11 @@
     };
 
     Country.prototype.prima_delta_abs = function() {
-      return Math.abs(this.prima_delta);
+      return "" + Math.abs(this.prima_delta);
     };
 
     Country.prototype.prima_percent_abs = function() {
-      return Math.abs(this.prima_percent);
+      return "" + Math.abs(this.prima_percent);
     };
 
     Country.prototype.active = function() {

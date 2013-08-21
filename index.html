@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Mira la prima</title>
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="ReTo Apps">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -13,75 +13,76 @@
     <meta http-equiv="cleartype" content="on">
 
     <!-- iPhone -->
-    <link href="http://lungo.tapquo.com/resources/icon-57.png" sizes="57x57" rel="apple-touch-icon">
-    <link href="http://lungo.tapquo.com/resources/startup-image-320x460.png" media="(device-width: 320px) and (device-height: 480px)
+    <link href="http://cdn.tapquo.com/lungo/icon-57.png" sizes="57x57" rel="apple-touch-icon">
+    <link href="http://cdn.tapquo.com/lungo/startup-image-320x460.png" media="(device-width: 320px) and (device-height: 480px)
              and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
 
     <!-- iPhone (Retina) -->
-    <link href="http://lungo.tapquo.com/resources/icon-114.png" sizes="114x114" rel="apple-touch-icon">
-    <link href="http://lungo.tapquo.com/resources/startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px)
+    <link href="http://cdn.tapquo.com/lungo/icon-114.png" sizes="114x114" rel="apple-touch-icon">
+    <link href="http://cdn.tapquo.com/lungo/startup-image-640x920.png" media="(device-width: 320px) and (device-height: 480px)
              and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
     <!-- iPhone 5 -->
-    <link href="http://lungo.tapquo.com/resources/startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px)
+    <link href="http://cdn.tapquo.com/lungo/startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px)
              and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
     <!-- iPad -->
-    <link href="http://lungo.tapquo.com/resources/icon-72.png" sizes="72x72" rel="apple-touch-icon">
-    <link href="http://lungo.tapquo.com/resources/startup-image-768x1004.png" media="(device-width: 768px) and (device-height: 1024px)
+    <link href="http://cdn.tapquo.com/lungo/icon-72.png" sizes="72x72" rel="apple-touch-icon">
+    <link href="http://cdn.tapquo.com/lungo/startup-image-768x1004.png" media="(device-width: 768px) and (device-height: 1024px)
              and (orientation: portrait)
              and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
-    <link href="http://lungo.tapquo.com/resources/startup-image-748x1024.png" media="(device-width: 768px) and (device-height: 1024px)
+    <link href="http://cdn.tapquo.com/lungo/startup-image-748x1024.png" media="(device-width: 768px) and (device-height: 1024px)
              and (orientation: landscape)
              and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
 
     <!-- iPad (Retina) -->
-    <link href="http://lungo.tapquo.com/resources/icon-144.png" sizes="144x144" rel="apple-touch-icon">
-    <link href="http://lungo.tapquo.com/resources/startup-image-1536x2008.png" media="(device-width: 768px) and (device-height: 1024px)
+    <link href="http://cdn.tapquo.com/lungo/icon-144.png" sizes="144x144" rel="apple-touch-icon">
+    <link href="http://cdn.tapquo.com/lungo/startup-image-1536x2008.png" media="(device-width: 768px) and (device-height: 1024px)
              and (orientation: portrait)
              and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-    <link href="http://lungo.tapquo.com/resources/startup-image-1496x2048.png" media="(device-width: 768px) and (device-height: 1024px)
+    <link href="http://cdn.tapquo.com/lungo/startup-image-1496x2048.png" media="(device-width: 768px) and (device-height: 1024px)
              and (orientation: landscape)
              and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
     <!-- Lungo - Stylesheets -->
-    <link rel="stylesheet" href="components/lungo/lungo.css">
-    <link rel="stylesheet" href="components/lungo/lungo.icon.css">
-    <link rel="stylesheet" href="components/lungo/lungo.icon.brand.css">
-    <link rel="stylesheet" href="components/lungo/lungo.theme.black.css">
+    <link rel="stylesheet" href="components/lungo22/lungo.css">
+    <link rel="stylesheet" href="components/lungo22/lungo.icon.css">
+    <link rel="stylesheet" href="components/lungo22/lungo.theme.css">
+    <!-- <link rel="stylesheet" href="components/lungo/lungo.theme.black.css"> -->
 
     <!-- my stylesheets -->
     <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <link rel="stylesheet" href="assets/stylesheets/moreicons.css">
 </head>
 
 <body class="app">
 
-  <section id="section-main" data-transition="slide" data-pull="normal">
+  <section id="section-main" data-pull="arrow-down" data-transition="slide" data-aside="menu-main">
     <header data-title="Mira la Prima" class="theme">
-      <nav class="right box">
-        <!-- <a href="#menu-main" data-router="aside" data-icon="menu" data-label="Menú"></a> -->
-        <a href="#menu-main" data-router="aside" data-icon="menu"></a>
+      <nav class="on-right box">
+        <button data-view-aside="menu-main" data-icon="menu"></button>
       </nav>
     </header>
-    <footer class="toolbar with-labels">
-      <nav>
-        <a id="all-primas-tab-btn" href="#all-primas" data-router="article" class="current" data-label="Todos" data-icon="folder"></a>
-        <a id="favourites-tab-btn" href="#favourite-primas" data-router="article" data-label="Favoritos" data-icon="star"></a>
-      </nav>
-    </footer>
-    
-    <article id="all-primas" class="list scroll">
+
+    <article id="all-primas" class="active list scroll">
     </article>
     <article id="favourite-primas" class="list scroll">
     </article>
 
+    <footer class="toolbar with-labels">
+      <nav>
+        <a id="all-primas-tab-btn" href="#all-primas" data-view-article="all-primas" data-icon="list"></a>
+        <a id="favourites-tab-btn" href="#all-primas" data-view-article="favourite-primas" data-icon="star"></a>
+      </nav>
+    </footer>
   </section>
-  
-  <aside id="menu-prima-country" class="right">
-    <article class="list">
+
+  <aside id="menu-prima-country" data-transition="right">
+    <header data-title="Menú"></header>
+    <article class="list active">
         <ul>
             <li>
-              <a id="add-to-fav-btn" href="#" data-icon="star">
+              <a id="add-to-fav-btn" href="#" data-icon="star-empty">
                 <strong>Añadir a Favoritos</strong>
                 <small>Añade este país a favoritos</small>
               </a>
@@ -93,7 +94,7 @@
               </a>
             </li>
             <li>
-              <a id="share-your-prima-btn" href="#section-upload-prima" data-router="section" data-icon="upload">
+              <a id="share-your-prima-btn" href="#section-upload-prima" data-view-section="section-upload-prima" data-icon="upload">
                 <strong>Sube a tu prima</strong>
                 <small>Comparte una foto de un pivón</small>
               </a>
@@ -107,18 +108,19 @@
         </ul>
     </article>
   </aside>
-  
-  <aside id="menu-main" class="right">
-    <article class="list">
+
+  <aside id="menu-main" data-transition="right">
+    <header data-title="Menú"></header>
+    <article class="list active">
         <ul>
             <li>
-              <a id="share-your-prima2-btn" href="#section-upload-prima" data-router="section" data-icon="upload">
+              <a id="share-your-prima2-btn" href="#section-upload-prima" data-view-section="section-upload-prima" data-icon="upload">
                 <strong>Sube a tu prima</strong>
                 <small>Comparte una foto de un pivón</small>
               </a>
             </li>
             <li>
-              <a id="about-btn" href="#section-about" data-router="section" data-icon="info">
+              <a id="about-btn" href="#section-about" data-view-section="section-about" data-icon="info-sign">
                 <strong>About</strong>
                 <small>Retoapps</small>
               </a>
@@ -133,43 +135,35 @@
   <!-- underscore -->
   <script src="assets/javascripts/underscore-min.js"></script>
   <!-- Lungo - Dependencies -->
-  <script src="components/quojs/quo.js"></script>
-  <script src="components/lungo/lungo.js"></script>
-  <!-- Lungo sugar with Carousel++ -->
-  <script src="components/Lungo.Sugar.Carousel.js"></script>
+  <script src="components/quojs23/quo.js"></script>
+  <script src="components/lungo22/lungo.js"></script>
+  <!-- Monocle MVC Framework -->
   <script src="components/monocle/monocle.js"></script>
-  
+
   <!--  peity, js chart lib  -->
   <script src="assets/javascripts/quo.peity.min.js"></script>
-  
+
   <!-- HW events -->
   <script src="assets/javascripts/hwevents.js"></script>
-  <!-- Pull down to refress scroll-->
-  <script src="assets/javascripts/pdrscroll.js"></script>
-  <!--  ICS fixes -->
-  <!-- <script src="assets/javascripts/ICSfixes.js"></script> -->
-  
+
   <!-- LungoJS - Sandbox App -->
   <script src="app/app.js"></script>
+  <script src="app/animations.js"></script>
   <script src="app/services.js"></script>
   <script src="app/photomanager.js"></script>
-  <!-- <script src="app/data.js"></script>
-  <script src="app/events.js"></script>
-  <script src="app/services.js"></script>
-  <script src="app/view.js"></script>
-  <script src="app/photomanager.js"></script>
-  <script src="app/utils.js"></script>-->
-  <script src="app/device.js"></script> 
+  <script src="app/device.js"></script>
 
-  <script src="app/monocle/model/country.js"></script>
+  <!-- Monocle app -->
+  <script src="build/appmonocle_c_j_m.js"></script>
+  <!--<script src="app/monocle/model/country.js"></script>
   <script src="app/monocle/view/Countryli.js"></script>
   <script src="app/monocle/view/CountryPrima.js"></script>
   <script src="app/monocle/controller/CountryLstCtrl.js"></script>
   <script src="app/monocle/controller/CountryActiveCtrl.js"></script>
-  <script src="app/monocle/controller/AsideCtrl.js"></script>
+  <script src="app/monocle/controller/AsideCtrl.js"></script>-->
 
 <!--  production mode app -->
 <!--   <script src="app/fullapp.min.js"></script> -->
-  
+
 </body>
 </html>

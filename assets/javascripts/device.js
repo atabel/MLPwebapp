@@ -1,8 +1,0 @@
-
-var Device = (function(){
-	
-	return {
-		
-	}
-	
-})()

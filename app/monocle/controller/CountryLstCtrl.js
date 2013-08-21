@@ -16,21 +16,37 @@
 
       this.bindCountryCreate = __bind(this.bindCountryCreate, this);
 
-      var pdr;
+      var pdr,
+        _this = this;
       CountryLstCtrl.__super__.constructor.apply(this, arguments);
-      __Model.Country.bind("create", this.bindCountryCreate);
-      __Model.Country.bind("change", this.bindCountryChange);
+      this.initCountryDB(function() {
+        __Model.Country.bind("create", _this.bindCountryCreate);
+        __Model.Country.bind("change", _this.bindCountryChange);
+        return _this.updateAllCoutriesLst();
+      });
       pdr = new Lungo.Element.Pull("section#section-main article", {
         onPull: "Tira hacia abajo para actualizar...",
         onRelease: "Suelta para actualizar...",
         onRefresh: "Cargando...",
-        callback: function() {
-          return root.App.Services.getCountriesList(function(countries) {
-            return pdr.hide();
-          });
-        }
+        callback: this.initCountryDB
       });
     }
+
+    CountryLstCtrl.prototype.initCountryDB = function(callback) {
+      return root.App.Services.getCountriesList(function(countries) {
+        var country, _i, _len;
+        console.log("all the countries: ", countries);
+        for (_i = 0, _len = countries.length; _i < _len; _i++) {
+          country = countries[_i];
+          try {
+            __Model.Country.findBy("country_code", country.country_code);
+          } catch (e) {
+            __Model.Country.create(country);
+          }
+        }
+        return typeof callback === "function" ? callback() : void 0;
+      });
+    };
 
     CountryLstCtrl.prototype.bindCountryCreate = function(country) {
       console.log("created country: ", country);

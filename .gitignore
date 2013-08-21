@@ -1,2 +1,5 @@
+.project
 mlp_webapp.sublime-workspace
-app/old_stuff
+app/old_stuff/
+node_modules/
+build/

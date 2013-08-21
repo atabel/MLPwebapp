@@ -10,6 +10,8 @@
     __extends(CountryActiveCtrl, _super);
 
     function CountryActiveCtrl() {
+      this.refreshActive = __bind(this.refreshActive, this);
+
       this.bindCountryChange = __bind(this.bindCountryChange, this);
       __Model.Country.bind("change", this.bindCountryChange);
       __Model.Country.bind("active", this.refreshActive);
@@ -23,10 +25,27 @@
 
     CountryActiveCtrl.prototype.refreshActive = function(country) {
       var view;
-      view = new __View.CountryPrima({
+      view = __View.CountryPrima.getInstance({
         model: country
       });
-      return view.html(country);
+      view.html(country);
+      return this.loadHistory(country);
+    };
+
+    CountryActiveCtrl.prototype.loadHistory = function(country) {
+      var cc;
+      cc = country.country_code;
+      return App.Services.loadPrimaHistory(cc, null, function(history) {
+        var $chart;
+        console.error("loading chart");
+        $chart = Monocle.Dom(".prima-chart");
+        $chart.hide().text(history.reverse().join());
+        $chart.peity("line", {
+          "width": Math.floor($$(".prima").width()),
+          "height": Math.floor($$(".prima").height())
+        });
+        return $chart.show();
+      });
     };
 
     return CountryActiveCtrl;

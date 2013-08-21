@@ -1,0 +1,14 @@
+{
+    "name": "mlp_webapp",
+    "version": "2.0.0",
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "matchdep": "*",
+
+        "grunt-contrib-coffee": "*",
+        "grunt-contrib-compass": "*",
+        "grunt-contrib-watch": "*",
+        "grunt-jsmin-sourcemap": "*",
+        "grunt-contrib-uglify": "*"
+    }
+}

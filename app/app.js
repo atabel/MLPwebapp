@@ -4,54 +4,107 @@
 
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
+  Lungo.Data.Storage = Lungo.Data.Storage || {};
+
+  Lungo.Data.Storage.persistent = function(key, value) {
+    if (value == null) {
+      value = null;
+    }
+    if (value === null) {
+      return Lungo.Cache.get(key);
+    } else {
+      return Lungo.Cache.set(key, value);
+    }
+  };
+
   root.App = (function(lng) {
-    lng.init({
-      name: "Mira la Prima",
-      version: "2.0",
-      resources: ["app/resources/sections/country.html", "app/resources/sections/uploadprima.html", "app/resources/sections/about.html"]
-    });
-    lng.ready(function() {
-      var i, _i, _results;
-      if (root.Device.isFree()) {
-        $$("#section-prima-country .country-view-mode").hide();
-        $$("#section-prima-country footer").addClass("transparent-footer");
-        $$("body").addClass("free-version");
-      }
-      root.App.Services.getCountriesList(function(countries) {
-        var country, _i, _len, _results;
-        console.log("all the countries: ", countries);
-        _results = [];
-        for (_i = 0, _len = countries.length; _i < _len; _i++) {
-          country = countries[_i];
-          _results.push(__Model.Country.create(country));
-        }
-        return _results;
-      });
-      root.carousel_example = Lungo.Sugar.Carousel($$('[data-control=carousel]')[0], function(index, element) {
-        var count_slides;
-        count_slides = $$('[data-control=carousel] img').length;
-        if (index === (count_slides - 2)) {
-          return root.App.PhotoManager.getPhoto(null, function(photo) {
-            var new_slide;
-            new_slide = "<div align='center'>" + photo.img.outerHTML + "</div>";
-            return root.carousel_example.append(new_slide);
-          });
+    var configPeity, createCarousel, init, initApp, initCarousel;
+    init = function() {
+      initApp();
+      configPeity();
+      return lng.ready(function() {
+        var _ref;
+        initCarousel();
+        App.Animations.init();
+        if ((_ref = root.Device) != null ? _ref.isFree() : void 0) {
+          $$("#section-prima-country .country-view-mode").hide();
+          $$("#section-prima-country footer").addClass("transparent-footer");
+          return $$("body").addClass("free-version");
         }
       });
+    };
+    initApp = function() {
+      console.warn("starting app...");
+      return lng.init({
+        name: "Mira la Prima",
+        version: "2.0",
+        resources: ["app/resources/sections/country.html", "app/resources/sections/uploadprima.html", "app/resources/sections/about.html"]
+      });
+    };
+    initCarousel = function() {
+      var carouselEl, i, loadedSlides, photoContainerEl, _i, _results;
+      carouselEl = $$('[data-control=carousel]').first();
+      photoContainerEl = carouselEl.children().first();
+      loadedSlides = 0;
       _results = [];
-      for (i = _i = 0; _i <= 5; i = ++_i) {
+      for (i = _i = 0; _i <= 4; i = ++_i) {
         _results.push(root.App.PhotoManager.getPhoto(null, function(photo) {
-          var new_slide;
-          new_slide = "<div align='center'>" + photo.img.outerHTML + "</div>";
-          return root.carousel_example.append(new_slide);
+          var newSlide;
+          newSlide = "<div align='center'>" + photo.img.outerHTML + "</div>";
+          photoContainerEl.append(newSlide);
+          loadedSlides += 1;
+          console.warn('loaded ' + loadedSlides + ' slides');
+          if (loadedSlides === 5) {
+            return createCarousel(carouselEl);
+          }
         }));
       }
       return _results;
-    });
+    };
+    configPeity = function() {
+      return $$.fn.peity.defaults.line = {
+        colour: "rgba(5,184,226,0.3)",
+        strokeColour: "rgba(0,98,172,0.8)",
+        strokeWidth: 3,
+        delimiter: ",",
+        height: 50,
+        max: null,
+        min: 99999,
+        width: 200
+      };
+    };
+    createCarousel = function() {
+      var carouselEl, photoContainerEl;
+      carouselEl = $$('[data-control=carousel]').first();
+      photoContainerEl = carouselEl.children().first();
+      root.carousel_example = Lungo.Element.Carousel(carouselEl[0], function(index, element) {
+        var countSlides;
+        countSlides = carouselEl.find('img').length;
+        $$("#debug").text("Slide " + index + "of " + countSlides);
+        if (index >= (countSlides - 2)) {
+          return root.App.PhotoManager.getPhotos(null, 5, function(photos) {
+            var newSlide, photo, _i, _len;
+            for (_i = 0, _len = photos.length; _i < _len; _i++) {
+              photo = photos[_i];
+              newSlide = "<div align='center'>" + photo.img.outerHTML + "</div>";
+              photoContainerEl.append(newSlide);
+            }
+            return root.carousel_example.refresh();
+          });
+        }
+      });
+      return Lungo.Events.init({
+        "load section#section-prima-country": function() {
+          console.warn("refreshing carousel ", carousel_example);
+          return root.carousel_example.refresh();
+        }
+      });
+    };
     if (!lng.Core.environment().isMobile) {
-      $$("#share-btn").parent().hide();
-      $$("body").addClass("not-mobile");
+      lng.dom("#share-btn").parent().hide();
+      lng.dom("body").addClass("not-mobile");
     }
+    init();
     return {};
   })(Lungo);
 
