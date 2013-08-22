@@ -1,5 +1,8 @@
 .project
 mlp_webapp.sublime-workspace
-app/old_stuff/
 node_modules/
-build/
+dist/
+.tmp/
+.sass-cache/
+app/bower_components/
+*.directory
