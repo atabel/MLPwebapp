@@ -1,6 +1,7 @@
 *~
 .project
-mlp_webapp.sublime-workspace
+*.sublime-workspace
+*.sublime-project
 node_modules/
 dist/
 .tmp/
