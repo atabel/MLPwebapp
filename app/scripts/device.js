@@ -1,19 +1,18 @@
 
-window.Device = (function (Device, lng) {
-	console.error("Device: ", Device);
+(function (lng) {
 	var IS_FREE = false;
 
 
-	var isFree = function() {
+	var isFree = function () {
 		return IS_FREE;
 	};
 
-	var isOnline = function() {
+	var isOnline = function () {
 		return true;
 	};
 
-	var share = function() {
-		console.log("SHARE BTN CLICKED");
+	var share = function (msg) {
+		console.log("SHARE BTN CLICKED", msg);
 	};
 
 	var exit = function () {
@@ -21,7 +20,6 @@ window.Device = (function (Device, lng) {
 	};
 
 	var _init = function () {
-		console.error("initializing hw button event handlers");
 		lng.dom(document).on("backbutton", function(evt) {
 			console.warn("back button pressed");
 			var aside = lng.Element.Cache.aside;
@@ -52,11 +50,10 @@ window.Device = (function (Device, lng) {
 		_init();
 	});
 
-	return _.extend({
-		isFree: isFree,
-		isOnline: isOnline,
-		share: share,
-		exit: exit
-	}, Device);
+	window.Device = window.Device || {};
+	window.Device.isFree = window.Device.isFree || isFree;
+	window.Device.isOnline = window.Device.isOnline || isOnline;
+	window.Device.share = window.Device.share || share;
+	window.Device.exit = window.Device.exit || exit;
 
-})(window.Device || {}, Lungo);
+})(Lungo);

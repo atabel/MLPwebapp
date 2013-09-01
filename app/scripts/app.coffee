@@ -20,7 +20,6 @@ root.App = do (lng = Lungo) ->
             initCarousel()
             App.Animations.init()
             if root.Device?.isFree()
-                lng.dom("#section-prima-country .country-view-mode").hide()
                 lng.dom("body").addClass "free-version"
 
 
@@ -84,9 +83,9 @@ root.App = do (lng = Lungo) ->
 
 
 
-    unless lng.Core.environment().isMobile
-        lng.dom("#share-btn").parent().hide()
-        lng.dom("body").addClass "not-mobile"
+    # unless lng.Core.environment().isMobile
+    #     lng.dom("#share-btn").parent().hide()
+    #     lng.dom("body").addClass "not-mobile"
 
     init()
 

@@ -1,4 +1,4 @@
-class __View.CountryPrima extends Monocle.View
+class __View.CountryPrima extends __View.MLPView
 
 	instance = null
 
