@@ -51,27 +51,27 @@ App.Services = (function(lng, app, undefined) {
         // ]);
         // return;
         console.log("Services.getCountriesList");
-        lng.Notification.show();
+        App.Notification.show();
         return cache(LOAD_PRIMA_URL,
             {},
             "10 minutes",
             function (countries_list) {
                 console.log("Services.getCountriesList RES:", countries_list);
                 callback(countries_list);
-                lng.Notification.hide();
+                App.Notification.hide();
             }
         );
     };
 
     var loadPrimaValue = function (country_code, callback) {
-        lng.Notification.show();
+        App.Notification.show();
         return get(LOAD_PRIMA_URL,
             {
                 country_code: country_code
             },
             function (prima_data) {
                 callback(prima_data);
-                lng.Notification.hide();
+                App.Notification.hide();
             }
         );
     };
@@ -81,33 +81,33 @@ App.Services = (function(lng, app, undefined) {
                 limit: 10
         };
         country_code && (options.country_code = country_code);
-        lng.Notification.show();
+        App.Notification.show();
         var xhr = get(LOAD_PHOTO_URL, options, function(res) {
             callback.call(callback, res);
             for (var i = 0; i < xhr._listeners.length; i++) {
                 var listener = xhr._listeners[i];
                 listener.call(listener, res);
             }
-            lng.Notification.hide();
+            App.Notification.hide();
         });
 
         xhr._listeners = [];
         xhr.whenLoaded = function (cb) {
             xhr._listeners.push(cb);
         };
-
+        console.error('xhr', xhr);
         return xhr;
     };
 
 
     var uploadPrimaPicture = function (url, callback) {
-        lng.Notification.show("upload", "Subiendo", 0);
+        App.Notification.show("upload", "Subiendo", 0);
         return get(UPLOAD_PHOTO_URL,
             {
                 url_moza: url
             },
             function (response){
-                lng.Notification.hide();
+                App.Notification.hide();
                 if (response && response.result === "OK") {
                     lng.Notification.success("Prima subida", "Si tu prima es aceptada pronto la verás por aquí ;-)", "check", 4);
                 } else {
@@ -145,9 +145,9 @@ App.Services = (function(lng, app, undefined) {
         return Lungo.Service.get(url, {}, callback, 'jsonp');
     };
 
-    $$.ajaxSettings.timeout = 1000;
+    $$.ajaxSettings.timeout = 5000;
     $$.ajaxSettings.error = function (xhr, type) {
-        lng.Notification.hide();
+        App.Notification.hide();
         lng.Notification.error("Error", "Fallo de conexión con el servidor", "warning-sign", 3);
     };
 

@@ -74,6 +74,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
+                            mountFolder(connect, 'app/bower_components'),
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, 'test')
                         ];
@@ -134,7 +135,9 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>/scripts',
                     src: '**/*.coffee',
                     dest: '.tmp/scripts',
-                    ext: '.js'
+                    rename: function(dest, src) {
+                        return dest + '/' + src.substring(0, src.lastIndexOf('.')) + '.js';
+                    }
                 }]
             },
             test: {
@@ -143,7 +146,9 @@ module.exports = function (grunt) {
                     cwd: 'test/spec',
                     src: '**/*.coffee',
                     dest: '.tmp/spec',
-                    ext: '.js'
+                    rename: function(dest, src) {
+                        return dest + '/' + src.substring(0, src.lastIndexOf('.')) + '.js';
+                    }
                 }]
             }
         },

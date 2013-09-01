@@ -19,8 +19,9 @@ class CountryActiveCtrl extends Monocle.Controller
 
     loadHistory: (country) ->
         cc = country.country_code
+        console.warn "loading chart..."
         App.Services.loadPrimaHistory cc, null, (history) ->
-            console.error "loading chart"
+            console.warn "chart loded", history
             $chart = Monocle.Dom ".prima-chart"
             $chart.hide().text(history.reverse().join())
             $chart.peity "line",

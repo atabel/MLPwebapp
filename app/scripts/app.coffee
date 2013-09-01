@@ -68,8 +68,9 @@ root.App = do (lng = Lungo) ->
         carouselEl = $$('[data-control=carousel]').first()
         photoContainerEl = carouselEl.children().first()
         root.carousel_example = Lungo.Element.Carousel carouselEl[0], (index, element) ->
-            countSlides = carouselEl.find('img').length
-            $$("#debug").text "Slide " + index + "of " + countSlides;
+            images = carouselEl.find 'img'
+            carouselEl.data "url", images[index].src
+            countSlides = images.length
             if index >= (countSlides - 2)
                 root.App.PhotoManager.getPhotos null, 5, (photos) ->
                     for photo in photos

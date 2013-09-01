@@ -2,8 +2,6 @@ App.PhotoManager = (function (lng, app, undefined) {
 
 	var CACHE_LABEL_CURRENT_PHOTO = "current_photo";
 
-	var _viewedPhotos = [];
-
 	var _photoList = [];
 
 	var _xhr;
@@ -124,7 +122,6 @@ App.PhotoManager = (function (lng, app, undefined) {
 		});
 		lng.Cache.set(CACHE_LABEL_CURRENT_PHOTO, photo);
 		console.log("returned photo:", photo);
-		_viewedPhotos.push(photo);
 		return photo;
 	};
 
