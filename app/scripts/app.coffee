@@ -82,11 +82,6 @@ root.App = do (lng = Lungo) ->
                 root.carousel_example.refresh()
 
 
-
-    # unless lng.Core.environment().isMobile
-    #     lng.dom("#share-btn").parent().hide()
-    #     lng.dom("body").addClass "not-mobile"
-
     init()
 
     {}

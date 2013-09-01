@@ -15,14 +15,14 @@ class AsideCtrl extends Monocle.Controller
         country.toggleFavourite()
 
     onPhotoLink: ->
-        window.open @constructor.getCurrentPhoto(), '_blank'
+        document.location.href = @constructor.getCurrentPhoto()
 
     onShare: ->
         country = __Model.Country.getActive()
         country_name = country.name;
         prima_value = country.prima_value;
         photo_url = @constructor.getCurrentPhoto()
-        Device.share 'La prima de ' + country_name + ' está en ' + prima_value + '. Pero esta prima si que tiene riesgo:\n'+photo_url+'\nMás primas en http://bit.ly/PFx7p2'
+        Device.share 'La prima de ' + country_name + ' está en ' + prima_value + '. Pero esta prima si que tiene riesgo:\n' + photo_url + '\nMás primas en http://bit.ly/PFx7p2'
 
 
 
