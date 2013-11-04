@@ -309,7 +309,8 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/**/*.{webp,gif}',
                         'styles/fonts/*',
-                        'templates/*.mustache'
+                        'templates/*.mustache',
+                        'manifest.webapp'
                     ]
                 }]
             },

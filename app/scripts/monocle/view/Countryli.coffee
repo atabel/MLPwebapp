@@ -1,4 +1,4 @@
-class __View.Countryli extends Monocle.View
+class __View.Countryli extends __View.MLPView
 
 	events:
 		"tap li.country-li": "onClickLi"

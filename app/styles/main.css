@@ -1,5 +1,35 @@
 @CHARSET "UTF-8";
 
+body[data-os=firefoxos] {
+    transform-style: flat;
+    position: fixed;
+    top: 0;
+}
+
+body[data-os=firefoxos] a:active {
+    background-color: rgba(0,0,0,0);
+}
+
+section > article {
+    height: calc(100% - 46px) !important;
+}
+
+section.with-footer > article {
+    height: calc(100% - 92px) !important;
+}
+
+section.fix {
+  position: fixed;
+  top: 0;
+}
+section.fix > header {
+  margin-bottom: 0;
+  transition: all .5s;
+}
+section.fix > header h1{
+  line-height: inherit;
+}
+
 body [data-animation-direction] {
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;

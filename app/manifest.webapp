@@ -1,0 +1,37 @@
+{
+    "version": "0.1",
+    "name": "Mira la prima",
+    "description": "Mira la prima, ¡qué riesgo!",
+    "launch_path": "/index.html",
+    "icons": {
+        "128": "/images/iconffos/mlpffos120.png",
+        "120": "/images/iconffos/mlpffos120.png",
+        "90": "/images/iconffos/mlpffos90.png",
+        "60": "/images/iconffos/mlpffos60.png",
+        "48": "/images/iconffos/mlpffos48.png",
+        "32": "/images/iconffos/mlpffos32.png",
+        "30": "/images/iconffos/mlpffos30.png",
+        "16": "/images/iconffos/mlpffos16.png"
+    },
+    "developer": {
+        "name": "RetoApps",
+        "url": "http://retoapps.wordpress.com"
+    },
+    "permissions": {
+    },
+    "locales": {
+        "en-US": {
+            "name": "Country Risk Girls",
+            "description": "Look at the country risk, it's hot!"
+        },
+        "en-UK": {
+            "name": "Country Risk Girls",
+            "description": "Look at the country risk, it's hot!"
+        },
+        "es-ES": {
+            "name": "Mira la prima",
+            "description": "Mira la prima, ¡qué riesgo!"
+        }
+    },
+    "default_locale": "es-ES"
+}
