@@ -44,4 +44,4 @@ class CountryPersistCtrl extends Monocle.Controller
 
 
 
-__Controller.CountryLst = new CountryPersistCtrl 'body'
+__Controller.CountryPersist = new CountryPersistCtrl 'body'
