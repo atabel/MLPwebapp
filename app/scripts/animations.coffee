@@ -2,7 +2,7 @@ root = exports ? this
 
 root.App.Animations = do (lng = Lungo, $ = Quo) ->
 
-	ANIMATIONS_END_EVENTS = ["webkitAnimationEnd", "animationend"]
+	ANIMATIONS_END_EVENTS = ["webkitAnimationEnd", "animationend", "mozAnimationEnd"]
 
 	init = () ->
 		$body = lng.dom "body"
