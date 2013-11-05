@@ -30,6 +30,12 @@ section.fix > header h1{
   line-height: inherit;
 }
 
+body[data-os=firefoxos] .notification .window {
+    position: relative;
+    top: calc(50% - 52px);
+    left: calc(50% - 52px);
+}
+
 body [data-animation-direction] {
 	-webkit-backface-visibility: hidden;
 	-moz-backface-visibility: hidden;
