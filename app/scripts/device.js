@@ -15,7 +15,6 @@
         var msg = 'La prima de ' + data.countryName + ' está en ' + data.primaValue + '. Pero esta prima si que tiene riesgo:\n' + data.photoUrl + '\nMás primas en http://bit.ly/PFx7p2';
         if (typeof MozActivity !== 'undefined') {
             _downloadBlob(data.photoUrl, function (blob) {
-                alert('opening activity');
                 var a = new MozActivity({
                     name: 'share',
                     data: {
@@ -28,7 +27,6 @@
                 a.onerror = function(e) {
                     if (a.error.name === 'NO_PROVIDER') {
                         var errorMsg = navigator.mozL10n.get('share-noprovider');
-                        alert(errorMsg);
                     } else {
                         console.warn('share activity error:', a.error.name);
                     }
@@ -59,7 +57,7 @@
             callback(blob);
         }, false);
         xhr.onerror = function getIconError() {
-            console.log('Error fetching image ' + url);
+            console.log('Error fetching image ' + url, arguments);
         };
         xhr.send();
     };
