@@ -38,7 +38,7 @@
     };
 
     var _downloadBlob = function (url, callback) {
-        var xhr = new XMLHttpRequest({mozSystem: true});
+        var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'blob';
         xhr.addEventListener('load', function() {
