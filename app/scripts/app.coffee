@@ -25,7 +25,6 @@ root.App = do (lng = Lungo) ->
 
     initApp = () ->
         #Define the LungoJS Application Instance
-        console.warn "starting app..."
         lng.init
             name: "Mira la Prima"
             version: "2.0"
@@ -45,7 +44,6 @@ root.App = do (lng = Lungo) ->
                 newSlide = "<div align='center'>" + photo.img.outerHTML + "</div>"
                 photoContainerEl.append newSlide
                 loadedSlides += 1
-                console.warn 'loaded ' + loadedSlides + ' slides'
                 if loadedSlides is 5
                     createCarousel carouselEl
 
@@ -78,7 +76,6 @@ root.App = do (lng = Lungo) ->
                     root.carousel_example.refresh()
         Lungo.Events.init
             "load section#section-prima-country": ->
-                console.warn "refreshing carousel ", carousel_example
                 root.carousel_example.refresh()
 
 

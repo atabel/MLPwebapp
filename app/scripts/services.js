@@ -32,31 +32,31 @@ App.Services = (function(lng, app, undefined) {
         return newfn;
     };
 
+    /**
+     * callback called with callback([
+     *     {
+     *         name: "España",
+     *         country_code: "ES",
+     *         prima_value: 400,
+     *         prima_delta: 3,
+     *         prima_percent: 2.25
+     *     },
+     *     {
+     *         name: "Italia",
+     *         country_code: "IT",
+     *         prima_value: 300,
+     *         prima_delta: -2,
+     *         prima_percent: -2.5
+     *     }
+     *     ...
+     * ]);
+     */
     var getCountriesList = function (callback) {
-        // callback([
-        //     {
-        //         name: "España",
-        //         country_code: "ES",
-        //         prima_value: 400,
-        //         prima_delta: 3,
-        //         prima_percent: 2.25
-        //     },
-        //     {
-        //         name: "Italia",
-        //         country_code: "IT",
-        //         prima_value: 300,
-        //         prima_delta: -2,
-        //         prima_percent: -2.5
-        //     }
-        // ]);
-        // return;
-        console.log("Services.getCountriesList");
         App.Notification.show();
         return cache(LOAD_PRIMA_URL,
             {},
             "10 minutes",
             function (countries_list) {
-                console.log("Services.getCountriesList RES:", countries_list);
                 callback(countries_list);
                 App.Notification.hide();
             }
@@ -95,7 +95,6 @@ App.Services = (function(lng, app, undefined) {
         xhr.whenLoaded = function (cb) {
             xhr._listeners.push(cb);
         };
-        console.error('xhr', xhr);
         return xhr;
     };
 

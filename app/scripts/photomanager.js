@@ -19,38 +19,27 @@ App.PhotoManager = (function (lng, app, undefined) {
 	var getPhoto = function (country_code, callback, recur_times) {
 		//recur_times is a recursive calls counter
 		recur_times = recur_times || 0;
-		console.log("PHOTO REQUEST: ", country_code, "recur_times:", recur_times);
-		console.log("_photoList:", _photoList);
 
 		var ret_list = _.filter(_photoList, function(p) {
 			return !p.viewed;
 		});
 
 		if (country_code) {
-			console.log("filtering by country code");
 			ret_list = _.filter(ret_list, function(p) {
 				return p.country_code === country_code;
 			});
 		}
-		console.log("_photoList_filtered:", ret_list);
 		if (ret_list.length === 0) {
 			if (recur_times > 2) {
-				console.log("recurtimes exceded", recur_times, _photoList.length);
 				_markAllAsUnviewed();
 				callback(_returnRandomPhoto(_photoList));
 			} else if (_xhr) {
-				console.log("there is allready an phto xhr, wait for it...");
 				_xhr.whenLoaded(function () {
-					console.log("photo xhr loaded, now recur...");
 					getPhoto(country_code, callback, recur_times + 1);
 				});
 			} else {
-				console.log("get photos from server");
 				_xhr = app.Services.loadPrimaPicture(country_code, function (photos) {
-					console.log("photos to add:", photos);
 					addPhotos(photos);
-					console.log("photos added _photoList:", _photoList);
-					console.log("now recur...");
 					getPhoto(country_code, callback, recur_times + 1);
 					_xhr = null;
 				});
@@ -90,7 +79,6 @@ App.PhotoManager = (function (lng, app, undefined) {
 			//precache photo:
 			new_photo.img = _preloadImg(new_photo.photo_url, function() {
 				new_photo.loaded = true;
-				console.log("loaded IMG:", new_photo);
 				_numImg++;
 			});
 
@@ -121,7 +109,6 @@ App.PhotoManager = (function (lng, app, undefined) {
 			return p;
 		});
 		lng.Cache.set(CACHE_LABEL_CURRENT_PHOTO, photo);
-		console.log("returned photo:", photo);
 		return photo;
 	};
 
@@ -131,9 +118,7 @@ App.PhotoManager = (function (lng, app, undefined) {
 
 	var init = function (callback) {
 		app.Services.loadPrimaPicture(null, function (photos) {
-			console.log("photos to add:", photos);
 			addPhotos(photos);
-			console.log("photos added _photoList:", _photoList);
 			callback();
 		});
 	};

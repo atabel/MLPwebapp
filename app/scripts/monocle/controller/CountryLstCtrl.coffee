@@ -36,14 +36,12 @@ class CountryLstCtrl extends Monocle.Controller
 
     updateCountriesFromServer: (callback) ->
         root.App.Services.getCountriesList (countries) ->
-            console.log 'all the countries: ', countries
             for attributes in countries
                 __Model.Country.updateOrCreate attributes
 
             callback?()
 
     bindCountryCreate: (country) =>
-        console.log 'created country: ', country
         @
 
     bindCountryChange: (country) =>

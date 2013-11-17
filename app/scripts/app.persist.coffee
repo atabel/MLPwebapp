@@ -12,7 +12,6 @@ App.persist = (ls) ->
         JSON.parse ls.getItem(key)
 
     set = (key, val) ->
-        console.error 'storing', key, val
         ls.setItem key, JSON.stringify(val)
 
     del = (key) ->

@@ -23,7 +23,6 @@ class CountryPersistCtrl extends Monocle.Controller
 
         #update country code list
         countryCodeList = App.Persist.get(COUNTRY_CODES) ? []
-        console.error 'country code list ', countryCodeList
         if countryCodeList.indexOf(country.country_code) < 0
             countryCodeList.push country.country_code
         App.Persist.set COUNTRY_CODES, countryCodeList

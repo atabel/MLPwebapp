@@ -14,7 +14,6 @@ root.App.Animations = do (lng = Lungo, $ = Quo) ->
 		$el = lng.dom event.target
 		$el.removeAttr "data-animation-direction"
 		$el.removeClass "animating"
-		console.warn "animationEnd in ", $el
 
 
 	$.fn.animate = (animation, direction) ->
