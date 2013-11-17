@@ -10,23 +10,23 @@ body[data-os=firefoxos] a:active {
     background-color: rgba(0,0,0,0);
 }
 
-section > article {
+body[data-os=firefoxos] section > article {
     height: calc(100% - 46px) !important;
 }
 
-section.with-footer > article {
+body[data-os=firefoxos] section.with-footer > article {
     height: calc(100% - 92px) !important;
 }
 
-section.fix {
+body[data-os=firefoxos] section.fix {
   position: fixed;
   top: 0;
 }
-section.fix > header {
+body[data-os=firefoxos] section.fix > header {
   margin-bottom: 0;
   transition: all .5s;
 }
-section.fix > header h1{
+body[data-os=firefoxos] section.fix > header h1{
   line-height: inherit;
 }
 
@@ -64,13 +64,14 @@ body [data-animation-direction] {
 }
 
 .prima {
-	z-index: 999;
-	cursor: pointer;
-	position: absolute;
-	bottom: calc(50% - 65px);
-	left: 17%;
-	width: 66%;
-	height: 130px;
+    z-index: 999;
+    cursor: pointer;
+    position: absolute;
+    bottom: 50%;
+    left: 17%;
+    width: 66%;
+    height: 130px;
+    margin-bottom: -65px;
 }
 
 .prima .prima-chart,
@@ -390,10 +391,10 @@ body [data-animation-direction] {
 }
 
 
-#all-primas li.country-li .icon,
+/*#all-primas li.country-li .icon,
 #favourite-primas li:not(.toolbar) .icon {
 	height: auto;
-}
+}*/
 
 .list li.country-li {
 	padding-top: 1px;
