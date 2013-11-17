@@ -7,7 +7,7 @@ Lungo.Data.Storage.persistent = (key, value=null) ->
   else
     Lungo.Cache.set key, value
 
-
+root.t = document.webL10n.get
 
 root.App = do (lng = Lungo) ->
 

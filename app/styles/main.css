@@ -485,8 +485,8 @@ body [data-animation-direction] {
 /* ABOUT */
 #lungologo {
 	display: block;
-	width: 40%;
-	margin: 5px auto;
+	width: 60%;
+	margin: 15px auto 0;
 }
 
 #article-about a {

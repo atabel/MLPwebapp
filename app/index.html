@@ -12,6 +12,9 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="cleartype" content="on">
 
+    <!-- translations -->
+    <link rel="prefetch" type="application/l10n" href="l10n/locales.ini" />
+
     <!-- build:css styles/main.all.css -->
     <link rel="stylesheet" href="bower_components/lungo/lungo.css">
     <link rel="stylesheet" href="bower_components/lungo/lungo.icon.css">
@@ -24,109 +27,115 @@
 
 <body class="app">
 
-  <section id="section-main" class="fix with-footer" data-pull="arrow-down" data-transition="slide" data-aside="menu-main">
-    <header data-title="Mira la Prima" class="theme">
-      <nav class="on-right">
-        <a href="#" data-view-aside="menu-main" data-icon="menu"></a>
-      </nav>
-    </header>
+    <section id="section-main" class="fix with-footer" data-pull="arrow-down" data-transition="slide" data-aside="menu-main">
+        <header>
+            <h1 class="title centered" data-l10n-id="app-title">Mira la Prima</h1>
+            <nav class="on-right">
+                <a href="#" data-view-aside="menu-main" data-icon="menu"></a>
+            </nav>
+        </header>
 
-    <article id="all-primas" class="active list scroll">
-    </article>
-    <article id="favourite-primas" class="list scroll">
-    </article>
+        <article id="all-primas" class="active list scroll">
+        </article>
+        <article id="favourite-primas" class="list scroll">
+        </article>
 
-    <footer class="toolbar with-labels">
-      <nav>
-        <a id="all-primas-tab-btn" href="#all-primas" data-view-article="all-primas" data-icon="list"></a>
-        <a id="favourites-tab-btn" href="#all-primas" data-view-article="favourite-primas" data-icon="star"></a>
-      </nav>
-    </footer>
-  </section>
+        <footer class="toolbar with-labels">
+            <nav>
+                <a id="all-primas-tab-btn" href="#all-primas" data-view-article="all-primas" data-icon="list"></a>
+                <a id="favourites-tab-btn" href="#all-primas" data-view-article="favourite-primas" data-icon="star"></a>
+            </nav>
+        </footer>
+    </section>
 
-  <aside id="menu-prima-country" data-transition="right">
-    <header data-title="Menú"></header>
-    <article class="list active">
-        <ul>
-            <li>
-              <a id="add-to-fav-btn" href="#" data-icon="star-empty">
-                <strong>Añadir a Favoritos</strong>
-                <small>Añade este país a favoritos</small>
-              </a>
-            </li>
-            <li>
-              <a id="photo-provider-link" href="#" data-icon="picture">
-                <strong>Origen de la foto</strong>
-                <small>Página de donde viene la foto</small>
-              </a>
-            </li>
-            <li>
-              <a id="share-your-prima-btn" href="#section-upload-prima" data-view-section="section-upload-prima" data-icon="upload">
-                <strong>Sube a tu prima</strong>
-                <small>Comparte una foto de un pivón</small>
-              </a>
-            </li>
-            <li>
-              <a id="share-btn" href="#" data-icon="share">
-                <strong>Comparte esta prima</strong>
-                <small>Comparte esta foto con tus amigos</small>
-              </a>
-            </li>
-        </ul>
-    </article>
-  </aside>
+    <aside id="menu-prima-country" data-transition="right">
+        <header>
+            <h1 class="title centered" data-l10n-id="aside-menu-title">Menú</h1>
+        </header>
+        <article class="list active">
+            <ul>
+                <li>
+                    <a id="add-to-fav-btn" href="#" data-icon="star-empty">
+                        <strong data-l10n-id="add-to-favs-aside">Añadir a Favoritos</strong>
+                        <small data-l10n-id="add-to-favs-aside-desc">Añade este país a favoritos</small>
+                    </a>
+                </li>
+                <li>
+                    <a id="photo-provider-link" href="#" data-icon="picture">
+                        <strong data-l10n-id="photo-src-aside">Origen de la foto</strong>
+                        <small data-l10n-id="photo-src-aside-desc">Página de donde viene la foto</small>
+                    </a>
+                </li>
+                <li>
+                    <a id="share-your-prima-btn" href="#section-upload-prima" data-view-section="section-upload-prima" data-icon="upload">
+                        <strong data-l10n-id="upload-photo-aside">Sube a tu prima</strong>
+                        <small data-l10n-id="upload-photo-aside-desc">Comparte una foto de un pivón</small>
+                    </a>
+                </li>
+                <li>
+                    <a id="share-btn" href="#" data-icon="share">
+                        <strong data-l10n-id="share-photo-aside">Comparte esta prima</strong>
+                        <small data-l10n-id="share-photo-aside-desc">Comparte esta foto con tus amigos</small>
+                    </a>
+                </li>
+            </ul>
+        </article>
+    </aside>
 
-  <aside id="menu-main" data-transition="right">
-    <header data-title="Menú"></header>
-    <article class="list active">
-        <ul>
-            <li>
-              <a id="share-your-prima2-btn" href="#section-upload-prima" data-view-section="section-upload-prima" data-icon="upload">
-                <strong>Sube a tu prima</strong>
-                <small>Comparte una foto de un pivón</small>
-              </a>
-            </li>
-            <li>
-              <a id="about-btn" href="#section-about" data-view-section="section-about" data-icon="info-sign">
-                <strong>About</strong>
-                <small>Retoapps</small>
-              </a>
-            </li>
-        </ul>
-    </article>
-  </aside>
+    <aside id="menu-main" data-transition="right">
+        <header>
+            <h1 class="title centered" data-l10n-id="aside-menu-title">Menú</h1>
+        </header>
+        <article class="list active">
+            <ul>
+                <li>
+                    <a id="share-your-prima2-btn" href="#section-upload-prima" data-view-section="section-upload-prima" data-icon="upload">
+                        <strong data-l10n-id="upload-photo-aside">Sube a tu prima</strong>
+                        <small data-l10n-id="upload-photo-aside-desc">Comparte una foto de un pivón</small>
+                    </a>
+                </li>
+                <li>
+                    <a id="about-btn" href="#section-about" data-view-section="section-about" data-icon="info-sign">
+                        <strong>About</strong>
+                        <small>Retoapps</small>
+                    </a>
+                </li>
+            </ul>
+        </article>
+    </aside>
 
-  <!-- build:js scripts/libs.all.js -->
-  <script src="bower_components/underscore/underscore-min.js"></script>
+    <!-- build:js scripts/libs.all.js -->
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/webL10n/l10n.js"></script>
 
-  <script src="bower_components/quojs/quo.js"></script>
-  <script src="bower_components/lungo/lungo.js"></script>
-  <script src="bower_components/monocle/monocle.js"></script>
-  <!-- endbuild -->
+    <script src="bower_components/quojs/quo.js"></script>
+    <script src="bower_components/lungo/lungo.js"></script>
+    <script src="bower_components/monocle/monocle.js"></script>
+    <!-- endbuild -->
 
-  <!-- build:js({app,.tmp}) scripts/app.all.js -->
-  <script src="scripts/vendor/quo.peity.min.js"></script>
-  <script src="scripts/hwevents.js"></script>
+    <!-- build:js({app,.tmp}) scripts/app.all.js -->
+    <script src="scripts/vendor/quo.peity.min.js"></script>
+    <script src="scripts/hwevents.js"></script>
 
-  <script src="scripts/app.js"></script>
-  <script src="scripts/app.persist.js"></script>
-  <script src="scripts/app.utils.js"></script>
-  <script src="scripts/app.notification.js"></script>
-  <script src="scripts/animations.js"></script>
-  <script src="scripts/services.js"></script>
-  <script src="scripts/photomanager.js"></script>
-  <script src="scripts/device.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/app.persist.js"></script>
+    <script src="scripts/app.utils.js"></script>
+    <script src="scripts/app.notification.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/services.js"></script>
+    <script src="scripts/photomanager.js"></script>
+    <script src="scripts/device.js"></script>
 
-  <script src="scripts/monocle/model/country.js"></script>
-  <script src="scripts/monocle/view/MLPView.js"></script>
-  <script src="scripts/monocle/view/Countryli.js"></script>
-  <script src="scripts/monocle/view/CountryPrima.js"></script>
-  <script src="scripts/monocle/controller/CountryLstCtrl.js"></script>
-  <script src="scripts/monocle/controller/CountryPersistCtrl.js"></script>
-  <script src="scripts/monocle/controller/CountryActiveCtrl.js"></script>
-  <script src="scripts/monocle/controller/AsideCtrl.js"></script>
-  <script src="scripts/monocle/controller/UploadPrimaCtrl.js"></script>
-  <!-- endbuild -->
+    <script src="scripts/monocle/model/country.js"></script>
+    <script src="scripts/monocle/view/MLPView.js"></script>
+    <script src="scripts/monocle/view/Countryli.js"></script>
+    <script src="scripts/monocle/view/CountryPrima.js"></script>
+    <script src="scripts/monocle/controller/CountryLstCtrl.js"></script>
+    <script src="scripts/monocle/controller/CountryPersistCtrl.js"></script>
+    <script src="scripts/monocle/controller/CountryActiveCtrl.js"></script>
+    <script src="scripts/monocle/controller/AsideCtrl.js"></script>
+    <script src="scripts/monocle/controller/UploadPrimaCtrl.js"></script>
+    <!-- endbuild -->
 
 </body>
 </html>

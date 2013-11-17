@@ -12,7 +12,7 @@ class UploadPrimaCtrl extends Monocle.Controller
             App.Services.uploadPrimaPicture url
             @urlInput.val ''
         else
-            Lungo.Notification.error("Error", "Url no válida", "warning-sign", 3);
+            Lungo.Notification.error(t("error"), t("invalid-url"), "warning-sign", 3);
 
 
 __Controller.UploadPrima = new UploadPrimaCtrl "section#section-upload-prima"

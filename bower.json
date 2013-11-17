@@ -4,7 +4,8 @@
   "dependencies": {
     "lungo": "~2.2.*",
     "monocle": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "webL10n": "*"
   },
   "devDependencies": {
     "mocha": "1.12.*",

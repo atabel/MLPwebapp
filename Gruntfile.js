@@ -310,6 +310,7 @@ module.exports = function (grunt) {
                         'images/**/*.{webp,gif}',
                         'styles/fonts/*',
                         'templates/*.mustache',
+                        'l10n/*.{ini,properties}',
                         'manifest.webapp'
                     ]
                 }]

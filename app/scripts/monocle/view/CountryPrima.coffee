@@ -63,15 +63,15 @@ class __View.CountryPrima extends __View.MLPView
 		Monocle.Dom(".prima").removeClass("minified").addClass "show"
 		super
 		@header = @el.parent().parent().parent().find "header .title"
-		@header.text "Prima de " + country.name
+		@header.text t("country-section-title", {country_name: country.name})
 
 		$favBtn = Monocle.Dom "#add-to-fav-btn"
 		if country.favourite
-			$favBtn.find("strong").text("Quitar de favoritos")
-			$favBtn.find("small").text("Elimiar este país de favoritos")
+			$favBtn.find("strong").text t("remove-from-favs-aside")
+			$favBtn.find("small").text t("remove-from-favs-aside-desc", {country_name: country.name})
 			$favBtn.find(".icon").removeClass("star").addClass("star-empty")
 		else
-			$favBtn.find("strong").text("Añadir a favoritos")
-			$favBtn.find("small").text("Añade este país a favoritos")
+			$favBtn.find("strong").text t("add-to-favs-aside")
+			$favBtn.find("small").text t("add-to-favs-aside-desc", {country_name: country.name})
 			$favBtn.find(".icon").removeClass("star-empty").addClass("star")
 

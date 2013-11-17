@@ -20,7 +20,7 @@ App.Services = (function(lng, app, undefined) {
                 var now = new Date();
                 now.setMinutes(now.getMinutes() - MINUTES_CONNECTION_ERROR);
                 if (now > _lastTimeShownConnectionError) {
-                    lng.Notification.error("Error", "Comprueba tu conexión", "warning-sign", 3);
+                    lng.Notification.error(t("error"), t("check-connection"), "warning-sign", 3);
                     _lastTimeShownConnectionError = new Date();
                 }
                 setTimeout(function() {xhr.abort();}, 100);
@@ -101,7 +101,7 @@ App.Services = (function(lng, app, undefined) {
 
 
     var uploadPrimaPicture = function (url, callback) {
-        App.Notification.show("upload", "Subiendo", 0);
+        App.Notification.show("upload", t("uploading"), 0);
         return get(UPLOAD_PHOTO_URL,
             {
                 url_moza: url
@@ -109,9 +109,9 @@ App.Services = (function(lng, app, undefined) {
             function (response){
                 App.Notification.hide();
                 if (response && response.result === "OK") {
-                    lng.Notification.success("Prima subida", "Si tu prima es aceptada pronto la verás por aquí ;-)", "check", 4);
+                    lng.Notification.success(t("photo-uploaded"), t("photo-uploaded-success-msg"), "check", 4);
                 } else {
-                    lng.Notification.error("Error", "Ocurrió un error subiendo la prima al servidor", "warning-sign", 5);
+                    lng.Notification.error(t("error"), t("photo-uploaded-error-msg"), "warning-sign", 5);
                 }
             }
         );
@@ -148,7 +148,7 @@ App.Services = (function(lng, app, undefined) {
     $$.ajaxSettings.timeout = 5000;
     $$.ajaxSettings.error = function (xhr, type) {
         App.Notification.hide();
-        lng.Notification.error("Error", "Fallo de conexión con el servidor", "warning-sign", 3);
+        lng.Notification.error(t("error"), t("server-connection-failure-msg"), "warning-sign", 3);
     };
 
     return {
