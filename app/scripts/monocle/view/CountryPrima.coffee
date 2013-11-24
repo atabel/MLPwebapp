@@ -56,22 +56,27 @@ class __View.CountryPrima extends __View.MLPView
 		Monocle.Dom("#num-btn").removeClass 'active'
 		@container.addClass "rotate-3d"
 
-
-	_html: (method, elements...) ->
+	onBeforeRender: (method, elements...) ->
 		country = elements[0]
 		country.is_growing = country.primaIsGrowing()
 		Monocle.Dom(".prima").removeClass("minified").addClass "show"
-		super
+		[method, elements]
+
+	onAfterRender: (method, elements...) ->
+		country = elements[0]
+		countryName = t(country.country_code) or country.name
 		@header = @el.parent().parent().parent().find "header .title"
-		@header.text t("country-section-title", {country_name: country.name})
+		@header.text t("country-section-title", {country_name: countryName})
 
 		$favBtn = Monocle.Dom "#add-to-fav-btn"
 		if country.favourite
 			$favBtn.find("strong").text t("remove-from-favs-aside")
-			$favBtn.find("small").text t("remove-from-favs-aside-desc", {country_name: country.name})
+			$favBtn.find("small").text t("remove-from-favs-aside-desc", {country_name: countryName})
 			$favBtn.find(".icon").removeClass("star").addClass("star-empty")
 		else
 			$favBtn.find("strong").text t("add-to-favs-aside")
-			$favBtn.find("small").text t("add-to-favs-aside-desc", {country_name: country.name})
+			$favBtn.find("small").text t("add-to-favs-aside-desc", {country_name: countryName})
 			$favBtn.find(".icon").removeClass("star-empty").addClass("star")
+
+
 
