@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/atabel/MLPwebapp.png?branch=v2)](https://travis-ci.org/atabel/MLPwebapp)
+[![Build Status](https://travis-ci.org/atabel/MLPwebapp.png?branch=v2)](https://travis-ci.org/atabel/MLPwebapp) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
