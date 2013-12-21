@@ -111,10 +111,10 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                // jshintrc: '.jshintrc'
             },
             all: [
-                'Gruntfile.js',
+                // 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/**/*.js',
                 '!<%= yeoman.app %>/scripts/vendor/*',
                 'test/spec/**/*.js'
@@ -391,6 +391,11 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', [
         'jshint',
+        'test',
+        'build'
+    ]);
+
+    grunt.registerTask('travis', [
         'test',
         'build'
     ]);

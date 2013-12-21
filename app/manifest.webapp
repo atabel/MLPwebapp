@@ -1,5 +1,5 @@
 {
-    "version": "0.3",
+    "version": "0.4",
     "name": "Mira la prima",
     "description": "Mira la prima, ¡qué riesgo!",
     "launch_path": "/index.html",
@@ -19,7 +19,12 @@
     },
     "permissions": {
     },
+    "default_locale": "es-ES",
     "locales": {
+        "es-ES": {
+            "name": "Mira la prima",
+            "description": "Mira la prima, ¡qué riesgo!"
+        },
         "en-US": {
             "name": "Country Risk Girls",
             "description": "Look at the country risk, it's hot!"
@@ -27,11 +32,6 @@
         "en-UK": {
             "name": "Country Risk Girls",
             "description": "Look at the country risk, it's hot!"
-        },
-        "es-ES": {
-            "name": "Mira la prima",
-            "description": "Mira la prima, ¡qué riesgo!"
         }
-    },
-    "default_locale": "es-ES"
+    }
 }

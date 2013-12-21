@@ -79,7 +79,7 @@ App.Services = (function(lng, app, undefined) {
     var loadPrimaPicture = function(country_code, callback) {
         var options = {
             limit: 10,
-            safe_search: navigator.config.photos.safeSearch
+            safesearch: navigator.config.photos.safeSearch
         };
         country_code && (options.country_code = country_code);
         App.Notification.show();
