@@ -4,22 +4,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Mocha Spec Runner</title>
-    <link rel="stylesheet" href="../app/bower_components/mocha/mocha.css">
+    <link rel="stylesheet" href="mocha/mocha.css">
 </head>
 <body>
     <div id="mocha"></div>
-    <script src="../app/bower_components/mocha/mocha.js"></script>
+    <script src="mocha/mocha.js"></script>
+
     <script>mocha.setup('bdd')</script>
     <!-- assertion framework -->
-    <script src="../app/bower_components/chai/chai.js"></script>
+    <script src="chai/chai.js"></script>
     <script>var expect = chai.expect</script>
     <!-- mock lib -->
-    <script src="../app/bower_components/sinonjs/sinon.js"></script>
+    <script src="sinonjs/sinon.js"></script>
 
     <!-- include source files here... -->
-    <script src="../.tmp/scripts/app.notification.js"></script>
+    <script data-cover src="scripts/app.notification.js"></script>
+    <!-- code coverage -->
+    <!-- <script
+        src="blanket/dist/qunit/blanket.min.js"
+        data-cover-adapter="blanket/src/adapters/mocha-blanket.js">
+    -->
+    </script>
     <!-- include spec files here... -->
-    <script src="../.tmp/spec/app.notification.test.js"></script>
+    <script src="spec/app.notification.test.js"></script>
 
     <script>
         if (window.mochaPhantomJS) {
@@ -27,9 +34,6 @@
         } else {
             mocha.run();
         }
-        // if (navigator.userAgent.indexOf('PhantomJS') < 0) {
-        //     mocha.run();
-        // }
     </script>
 </body>
 </html>

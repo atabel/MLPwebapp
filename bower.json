@@ -10,6 +10,7 @@
   "devDependencies": {
     "mocha": "1.16.*",
     "chai": "1.8.*",
-    "sinonjs": "~1.7.*"
+    "sinonjs": "~1.7.*",
+    "blanket": "~1.1.5"
   }
 }

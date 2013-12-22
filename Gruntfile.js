@@ -74,19 +74,19 @@ module.exports = function (grunt) {
                     }
                 }
             },
-            // test: {
-            //     options: {
-            //         port: 9000,
-            //         base: '.',
-            //         middleware: function (connect) {
-            //             return [
-            //                 mountFolder(connect, 'app/bower_components'),
-            //                 mountFolder(connect, '.tmp'),
-            //                 mountFolder(connect, 'test')
-            //             ];
-            //         }
-            //     }
-            // },
+            test: {
+                options: {
+                    port: 9000,
+                    base: '.',
+                    middleware: function (connect) {
+                        return [
+                            mountFolder(connect, 'app/bower_components'),
+                            mountFolder(connect, '.tmp'),
+                            mountFolder(connect, 'test')
+                        ];
+                    }
+                }
+            },
             dist: {
                 options: {
                     port: 9000,
@@ -137,11 +137,12 @@ module.exports = function (grunt) {
         //     }
         // },
         mocha_phantomjs: {
-            options: {
-                'reporter': 'dot'
-            },
-            files: {
-                src: ['test/index.html']
+            all: {
+                options: {
+                    urls: [
+                        'http://localhost:<%= connect.test.options.port %>/index.html'
+                    ]
+                }
             }
         },
         coffee: {
@@ -368,6 +369,8 @@ module.exports = function (grunt) {
     grunt.registerTask('server', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive', 'open']);
+        } else if (target === 'test') {
+            return grunt.task.run(['test', 'open', 'watch']);
         }
 
         grunt.task.run([
@@ -384,6 +387,7 @@ module.exports = function (grunt) {
         'clean:server',
         'concurrent:test',
         'autoprefixer',
+        'connect:test',
         'mocha_phantomjs'
     ]);
 
