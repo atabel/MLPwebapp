@@ -72,6 +72,8 @@ module.exports = function (grunt) {
             },
             test: {
                 options: {
+                    port: 9000,
+                    hostname: '127.0.0.1',
                     middleware: function (connect) {
                         return [
                             mountFolder(connect, 'app/bower_components'),
@@ -110,9 +112,9 @@ module.exports = function (grunt) {
             server: '.tmp'
         },
         jshint: {
-            options: {
+            // options: {
                 // jshintrc: '.jshintrc'
-            },
+            // },
             all: [
                 // 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/**/*.js',
@@ -124,7 +126,7 @@ module.exports = function (grunt) {
             all: {
                 options: {
                     run: true,
-                    urls: ['http://localhost:<%= connect.options.port %>/index.html']
+                    urls: ['http://127.0.0.1:<%= connect.test.options.port %>/index.html']
                 }
             }
         },
