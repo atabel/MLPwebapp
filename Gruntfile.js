@@ -359,11 +359,8 @@ module.exports = function (grunt) {
             ]
         },
         bower: {
-            options: {
-                exclude: ['modernizr']
-            },
-            all: {
-                rjsConfig: '<%= yeoman.app %>/scripts/main.js'
+            install: {
+
             }
         }
     });
@@ -411,6 +408,7 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('travis', [
+        'bower',
         'test'
     ]);
 };
