@@ -20,6 +20,10 @@
     <!-- include spec files here... -->
     <script src="spec/app.notification.test.js"></script>
 
-    <script>mocha.run()</script>
+    <script>
+        setTimeout(function() {
+            mocha.run();
+        }, 2000);
+    </script>
 </body>
 </html>
