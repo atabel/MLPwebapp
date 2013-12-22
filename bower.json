@@ -8,7 +8,7 @@
     "webL10n": "*"
   },
   "devDependencies": {
-    "mocha": "1.12.*",
+    "mocha": "1.16.*",
     "chai": "1.5.*",
     "sinonjs": "~1.7.1"
   }
