@@ -6,6 +6,5 @@ node_js:
 
 before_script:
   - npm install -g grunt-cli
-  - ls app/bower_components
   - bower install
-  - ls app/bower_components
+  - bower list
