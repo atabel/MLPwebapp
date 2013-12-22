@@ -22,9 +22,14 @@
     <script src="../.tmp/spec/app.notification.test.js"></script>
 
     <script>
-        if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+        if (window.mochaPhantomJS) {
+            mochaPhantomJS.run();
+        } else {
             mocha.run();
         }
+        // if (navigator.userAgent.indexOf('PhantomJS') < 0) {
+        //     mocha.run();
+        // }
     </script>
 </body>
 </html>

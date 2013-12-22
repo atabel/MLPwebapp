@@ -16,4 +16,4 @@ App.notification = (notifLib) ->
             notifLib.show()
         numShows += 1
 
-App.Notification = App.notification(Lungo.Notification)
+App.Notification = App.notification(Lungo?.Notification)

@@ -21,12 +21,12 @@
     "grunt-rev": "~0.1.0",
     "grunt-autoprefixer": "~0.1.20130516",
     "grunt-usemin": "~0.1.10",
-    "grunt-mocha": "~0.4.0",
     "grunt-open": "~0.2.0",
     "grunt-svgmin": "~0.1.0",
     "grunt-concurrent": "~0.1.0",
     "matchdep": "~0.1.1",
-    "connect-livereload": "~0.2.0"
+    "connect-livereload": "~0.2.0",
+    "grunt-mocha-phantomjs": "~0.3.2"
   },
   "engines": {
     "node": ">=0.8.0"

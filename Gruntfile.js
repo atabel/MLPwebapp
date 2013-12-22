@@ -128,12 +128,20 @@ module.exports = function (grunt) {
                 'test/spec/**/*.js'
             ]
         },
-        mocha: {
-            all: {
-                src: ['test/index.html'],
-                options: {
-                    run: true
-                }
+        // mocha: {
+        //     all: {
+        //         src: ['test/index.html'],
+        //         options: {
+        //             run: true
+        //         }
+        //     }
+        // },
+        mocha_phantomjs: {
+            options: {
+                'reporter': 'dot'
+            },
+            files: {
+                src: ['test/index.html']
             }
         },
         coffee: {
@@ -379,7 +387,7 @@ module.exports = function (grunt) {
         'clean:server',
         'concurrent:test',
         'autoprefixer',
-        'mocha'
+        'mocha_phantomjs'
     ]);
 
     grunt.registerTask('build', [
