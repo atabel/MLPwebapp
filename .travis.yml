@@ -6,5 +6,3 @@ node_js:
 
 before_script:
   - phantomjs --version
-  - rackup  # start a Web server
-  - sleep 3 # give Web server some time to bind to sockets, etc
