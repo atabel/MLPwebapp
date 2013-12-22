@@ -56,7 +56,7 @@ module.exports = function (grunt) {
         connect: {
             options: {
                 port: 9000,
-                hostname: '127.0.0.1'
+                hostname: 'localhost'
                 // change this to '0.0.0.0' to access the server from outside
             },
             livereload: {
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
             test: {
                 options: {
                     port: 9000,
-                    hostname: '127.0.0.1',
+                    base: '.',
                     middleware: function (connect) {
                         return [
                             mountFolder(connect, 'app/bower_components'),
@@ -125,8 +125,8 @@ module.exports = function (grunt) {
         mocha: {
             all: {
                 options: {
-                    run: false,
-                    urls: ['http://127.0.0.1:<%= connect.test.options.port %>/index.html']
+                    urls: ['http://localhost:<%= connect.test.options.port %>/index.html'],
+                    run: true
                 }
             }
         },

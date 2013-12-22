@@ -21,9 +21,9 @@
     <script src="spec/app.notification.test.js"></script>
 
     <script>
-        setTimeout(function() {
+        if (navigator.userAgent.indexOf('PhantomJS') < 0) {
             mocha.run();
-        }, 2000);
+        }
     </script>
 </body>
 </html>
