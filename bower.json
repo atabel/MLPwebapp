@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "mocha": "1.16.*",
-    "chai": "1.5.*",
-    "sinonjs": "~1.7.1"
+    "chai": "1.8.*",
+    "sinonjs": "~1.7.*"
   }
 }
