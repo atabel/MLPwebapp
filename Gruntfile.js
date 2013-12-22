@@ -74,19 +74,19 @@ module.exports = function (grunt) {
                     }
                 }
             },
-            test: {
-                options: {
-                    port: 9000,
-                    base: '.',
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, 'app/bower_components'),
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test')
-                        ];
-                    }
-                }
-            },
+            // test: {
+            //     options: {
+            //         port: 9000,
+            //         base: '.',
+            //         middleware: function (connect) {
+            //             return [
+            //                 mountFolder(connect, 'app/bower_components'),
+            //                 mountFolder(connect, '.tmp'),
+            //                 mountFolder(connect, 'test')
+            //             ];
+            //         }
+            //     }
+            // },
             dist: {
                 options: {
                     port: 9000,
@@ -403,7 +403,6 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('travis', [
-        'test',
-        'build'
+        'test'
     ]);
 };
