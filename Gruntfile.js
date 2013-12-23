@@ -433,6 +433,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('travis', [
         'bower',
-        'test:travis'
+        'test:travis',
+        'coveralls'
     ]);
 };
