@@ -1,10 +1,11 @@
 
 App.Services = (function(lng, app, undefined) {
-
-    var LOAD_PRIMA_URL = "http://miralaprima.herokuapp.com/GetPrima";
-    var LOAD_PHOTO_URL = "http://miralaprima.herokuapp.com/GetMoza";
-    var UPLOAD_PHOTO_URL = "http://miralaprima.herokuapp.com/SetMoza";
-    var LOAD_PRIMA_HISTORY_URL = "http://miralaprima.herokuapp.com/GetHistory";
+    var CONST = {
+        LOAD_PRIMA_URL: "http://miralaprima.herokuapp.com/GetPrima",
+        LOAD_PHOTO_URL: "http://miralaprima.herokuapp.com/GetMoza",
+        UPLOAD_PHOTO_URL: "http://miralaprima.herokuapp.com/SetMoza",
+        LOAD_PRIMA_HISTORY_URL: "http://miralaprima.herokuapp.com/GetHistory"
+    };
 
     var _lastTimeShownConnectionError = new Date(0);
     var MINUTES_CONNECTION_ERROR = 1;
@@ -53,7 +54,7 @@ App.Services = (function(lng, app, undefined) {
      */
     var getCountriesList = function (callback) {
         App.Notification.show();
-        return cache(LOAD_PRIMA_URL,
+        return cache(CONST.LOAD_PRIMA_URL,
             {},
             "10 minutes",
             function (countries_list) {
@@ -65,7 +66,7 @@ App.Services = (function(lng, app, undefined) {
 
     var loadPrimaValue = function (country_code, callback) {
         App.Notification.show();
-        return get(LOAD_PRIMA_URL,
+        return get(CONST.LOAD_PRIMA_URL,
             {
                 country_code: country_code
             },
@@ -83,7 +84,7 @@ App.Services = (function(lng, app, undefined) {
         };
         country_code && (options.country_code = country_code);
         App.Notification.show();
-        var xhr = get(LOAD_PHOTO_URL, options, function(res) {
+        var xhr = get(CONST.LOAD_PHOTO_URL, options, function(res) {
             callback.call(callback, res);
             for (var i = 0; i < xhr._listeners.length; i++) {
                 var listener = xhr._listeners[i];
@@ -102,7 +103,7 @@ App.Services = (function(lng, app, undefined) {
 
     var uploadPrimaPicture = function (url, callback) {
         App.Notification.show("upload", t("uploading"), 0);
-        return get(UPLOAD_PHOTO_URL,
+        return get(CONST.UPLOAD_PHOTO_URL,
             {
                 url_moza: url
             },
@@ -123,7 +124,7 @@ App.Services = (function(lng, app, undefined) {
         //     callback([3, 1, 2, 2, 6, 3, 7, 5]);
         // }, 200);
         // return;
-        return cache(LOAD_PRIMA_HISTORY_URL,
+        return cache(CONST.LOAD_PRIMA_HISTORY_URL,
             {
                 country_code: country_code,
                 limit: limit
@@ -156,7 +157,8 @@ App.Services = (function(lng, app, undefined) {
         loadPrimaValue: _checkConnectionDecorator(loadPrimaValue),
         loadPrimaPicture: loadPrimaPicture,
         uploadPrimaPicture: uploadPrimaPicture,
-        loadPrimaHistory: loadPrimaHistory
+        loadPrimaHistory: loadPrimaHistory,
+        CONST: CONST
     };
 
 })(Lungo, App);

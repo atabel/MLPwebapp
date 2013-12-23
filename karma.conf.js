@@ -14,7 +14,12 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'app/bower_components/quojs/quo.js',
+      'app/bower_components/lungo/lungo.js',
+      'app/bower_components/underscore/underscore-min.js',
+      '.tmp/scripts/config.js',
       '.tmp/scripts/app.notification.js',
+      'app/scripts/services.js',
       '.tmp/spec/*.js'
     ],
 
@@ -25,7 +30,8 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      '.tmp/scripts/*.js': 'coverage'
+      '.tmp/scripts/*.js': 'coverage',
+      'app/scripts/*.js': 'coverage'
     },
 
     // test results reporter to use
@@ -36,10 +42,6 @@ module.exports = function(config) {
         type: "lcov",
         dir: "coverage/"
     },
-
-    // plugins: [
-    //     'karma-coverage'
-    // ],
 
     // web server port
     port: 9876,
