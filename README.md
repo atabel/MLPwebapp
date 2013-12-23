@@ -1,1 +1,1 @@
-[![Build Status](https://travis-ci.org/atabel/MLPwebapp.png?branch=v2)](https://travis-ci.org/atabel/MLPwebapp) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://travis-ci.org/atabel/MLPwebapp.png?branch=v2)](https://travis-ci.org/atabel/MLPwebapp) [![Coverage Status](https://coveralls.io/repos/atabel/MLPwebapp/badge.png?branch=v2)](https://coveralls.io/r/atabel/MLPwebapp?branch=v2) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
