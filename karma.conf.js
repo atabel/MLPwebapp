@@ -30,7 +30,7 @@ module.exports = function(config) {
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['dots', 'coverage'],
+    reporters: ['mocha', 'coverage'],
 
     coverageReporter: {
         type: "lcov",

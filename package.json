@@ -42,7 +42,8 @@
     "karma-mocha": "~0.1.1",
     "karma-sinon-chai": "~0.1.4",
     "karma-coverage": "~0.1.4",
-    "grunt-karma-coveralls": "~2.2.0"
+    "grunt-karma-coveralls": "~2.2.0",
+    "karma-mocha-reporter": "~0.2.0"
   },
   "engines": {
     "node": ">=0.8.0"
