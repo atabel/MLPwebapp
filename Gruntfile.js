@@ -128,14 +128,6 @@ module.exports = function (grunt) {
                 'test/spec/**/*.js'
             ]
         },
-        // mocha: {
-        //     all: {
-        //         src: ['test/index.html'],
-        //         options: {
-        //             run: true
-        //         }
-        //     }
-        // },
         mocha_phantomjs: {
             all: {
                 options: {
@@ -143,6 +135,16 @@ module.exports = function (grunt) {
                         'http://localhost:<%= connect.test.options.port %>/index.html'
                     ]
                 }
+            }
+        },
+        karma: {
+            dev: {
+                configFile: 'karma.conf.js',
+                autoWatch: true
+            },
+            build: {
+                configFile: 'karma.conf.js',
+                singleRun: true
             }
         },
         coffee: {
@@ -236,7 +238,7 @@ module.exports = function (grunt) {
                 files: {
                     src: [
                         '<%= yeoman.dist %>/scripts/**/*.js',
-                        '<%= yeoman.dist %>/styles/**/*.css',
+                        '<%= yeoman.dist %>/styles/**/*.css'
                         // '<%= yeoman.dist %>/images/**/*.{png,jpg,jpeg,gif,webp}',
                         // '<%= yeoman.dist %>/styles/fonts/*'
                     ]
@@ -370,7 +372,13 @@ module.exports = function (grunt) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive', 'open']);
         } else if (target === 'test') {
-            return grunt.task.run(['test', 'open', 'watch']);
+            return grunt.task.run([
+                'clean:server',
+                'concurrent:test',
+                'autoprefixer',
+                'connect:test',
+                'open',
+                'watch']);
         }
 
         grunt.task.run([
@@ -383,13 +391,24 @@ module.exports = function (grunt) {
         ]);
     });
 
-    grunt.registerTask('test', [
-        'clean:server',
-        'concurrent:test',
-        'autoprefixer',
-        'connect:test',
-        'mocha_phantomjs'
-    ]);
+    grunt.registerTask('test', function (target) {
+        if (target === 'build') {
+            return grunt.task.run([
+                'clean:server',
+                'concurrent:test',
+                'autoprefixer',
+                // 'connect:test',
+                'karma:build'
+            ]);
+        }
+
+        grunt.task.run([
+            'clean:server',
+            'concurrent:test',
+            'autoprefixer',
+            'karma:dev'
+        ]);
+    });
 
     grunt.registerTask('build', [
         'clean:dist',
@@ -413,6 +432,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('travis', [
         'bower',
-        'test'
+        'test:build'
     ]);
 };

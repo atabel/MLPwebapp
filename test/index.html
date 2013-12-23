@@ -8,23 +8,22 @@
 </head>
 <body>
     <div id="mocha"></div>
-    <script src="mocha/mocha.js"></script>
+    <!-- include source files here... -->
+    <script data-cover src="scripts/app.notification.js"></script>
 
-    <script>mocha.setup('bdd')</script>
     <!-- assertion framework -->
     <script src="chai/chai.js"></script>
     <script>var expect = chai.expect</script>
     <!-- mock lib -->
     <script src="sinonjs/sinon.js"></script>
-
-    <!-- include source files here... -->
-    <script data-cover src="scripts/app.notification.js"></script>
+    <script src="mocha/mocha.js"></script>
     <!-- code coverage -->
-    <!-- <script
-        src="blanket/dist/qunit/blanket.min.js"
-        data-cover-adapter="blanket/src/adapters/mocha-blanket.js">
-    -->
-    </script>
+    <!--
+    <script data-cover-only="scripts/" src="blanket/dist/qunit/blanket.js"></script>
+    <script src="blanket/src/adapters/mocha-blanket.js"></script>
+ -->
+    <script>mocha.setup('bdd')</script>
+
     <!-- include spec files here... -->
     <script src="spec/app.notification.test.js"></script>
 
@@ -35,5 +34,6 @@
             mocha.run();
         }
     </script>
+
 </body>
 </html>
