@@ -152,6 +152,12 @@ module.exports = function (grunt) {
                 singleRun: true
             }
         },
+        coveralls: {
+            options: {
+                debug: true,
+                coverage_dir: 'coverage'
+            }
+        },
         coffee: {
             dist: {
                 files: [{

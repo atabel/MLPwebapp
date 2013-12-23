@@ -32,6 +32,14 @@ module.exports = function(config) {
     // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
     reporters: ['dots', 'coverage'],
 
+    coverageReporter: {
+        type: "lcov",
+        dir: "coverage/"
+    },
+
+    // plugins: [
+    //     'karma-coverage'
+    // ],
 
     // web server port
     port: 9876,
