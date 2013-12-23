@@ -145,6 +145,11 @@ module.exports = function (grunt) {
             build: {
                 configFile: 'karma.conf.js',
                 singleRun: true
+            },
+            travis: {
+                configFile: 'karma.conf.js',
+                browsers: ['PhantomJS', 'Firefox'],
+                singleRun: true
             }
         },
         coffee: {
@@ -392,21 +397,11 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('test', function (target) {
-        if (target === 'build') {
-            return grunt.task.run([
-                'clean:server',
-                'concurrent:test',
-                'autoprefixer',
-                // 'connect:test',
-                'karma:build'
-            ]);
-        }
-
         grunt.task.run([
             'clean:server',
             'concurrent:test',
             'autoprefixer',
-            'karma:dev'
+            'karma:' + target
         ]);
     });
 
@@ -432,6 +427,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('travis', [
         'bower',
-        'test:build'
+        'test:travis'
     ]);
 };
