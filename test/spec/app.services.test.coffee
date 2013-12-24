@@ -1,5 +1,8 @@
 do () ->
     describe 'App.services', () ->
+        before ->
+            window.t = (msg) -> msg
+
 
         it 'should have this API', ->
             services = App.Services
@@ -88,4 +91,35 @@ do () ->
                 expect(get).to.be.calledWith sinon.match(RegExp(App.Services.CONST.LOAD_PHOTO_URL))
                 expect(get).returned sinon.match.hasOwn('whenLoaded')
                 get.restore()
+
+        describe '#uploadPrimaPicture', ->
+
+            it 'should show a success feedback when the photo upload is OK', ->
+                successResponse = result: "OK"
+                get = sinon.stub Lungo.Service, 'get', (url, data, cb) ->
+                    cb successResponse
+
+                success = sinon.spy Lungo.Notification, 'success'
+
+                photoUrl = 'http://example.com/photo.jpg'
+                App.Services.uploadPrimaPicture photoUrl
+
+                expect(get).to.be.calledWith sinon.match(RegExp(App.Services.CONST.UPLOAD_PHOTO_URL))
+                expect(success).to.be.called
+                get.restore()
+
+            it 'should show an error feedback when the photo upload fails', ->
+                errorResponse = result: "ERROR"
+                get = sinon.stub Lungo.Service, 'get', (url, data, cb) ->
+                    cb errorResponse
+
+                error = sinon.spy Lungo.Notification, 'error'
+
+                photoUrl = 'http://example.com/photo.jpg'
+                App.Services.uploadPrimaPicture photoUrl
+
+                expect(get).to.be.calledWith sinon.match(RegExp(App.Services.CONST.UPLOAD_PHOTO_URL))
+                expect(error).to.be.called
+                get.restore()
+
 
