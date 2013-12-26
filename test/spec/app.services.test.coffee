@@ -122,4 +122,19 @@ do () ->
                 expect(error).to.be.called
                 get.restore()
 
+        describe '#loadPrimaHistory', ->
+
+            it 'should call a callback with a list of prima values', ->
+                expectedResult = [3, 1, 2, 2, 6, 3, 7, 5]
+                cache = sinon.stub Lungo.Service, 'cache', (url, data, time, cb) ->
+                    cb expectedResult
+
+                country = 'ES'
+                limit = 10
+                callback = sinon.spy()
+                App.Services.loadPrimaHistory country, limit, callback
+                expect(cache).to.be.calledWith sinon.match(RegExp(App.Services.CONST.LOAD_PRIMA_HISTORY_URL))
+                expect(callback).to.be.calledWith expectedResult
+                cache.restore()
+
 

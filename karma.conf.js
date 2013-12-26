@@ -14,11 +14,19 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'app/bower_components/webL10n/l10n.js',
       'app/bower_components/quojs/quo.js',
       'app/bower_components/lungo/lungo.js',
+      'app/bower_components/monocle/monocle.js',
       'app/bower_components/underscore/underscore-min.js',
+      {pattern: 'app/templates/*.mustache', watched: true, included: false, served: true},
       '.tmp/scripts/config.js',
       '.tmp/scripts/app.notification.js',
+      '.tmp/scripts/app.persist.js',
+      '.tmp/scripts/app.utils.js',
+      '.tmp/scripts/monocle/model/country.js',
+      '.tmp/scripts/monocle/view/MLPView.js',
+      '.tmp/scripts/monocle/view/Countryli.js',
       'app/scripts/services.js',
       '.tmp/spec/*.js'
     ],
@@ -30,8 +38,10 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
+      'app/scripts/*.js': 'coverage',
       '.tmp/scripts/*.js': 'coverage',
-      'app/scripts/*.js': 'coverage'
+      '.tmp/scripts/monocle/model/*.js': 'coverage',
+      '.tmp/scripts/monocle/view/*.js': 'coverage'
     },
 
     // test results reporter to use
@@ -41,6 +51,10 @@ module.exports = function(config) {
     coverageReporter: {
         type: "lcov",
         dir: "coverage/"
+    },
+
+    proxies: {
+      '/templates/': 'http://localhost:9876/base/app/templates/'
     },
 
     // web server port
