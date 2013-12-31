@@ -1,0 +1,11 @@
+{
+  "predef": [
+      "exports",
+      "require",
+      "module",
+      "document",
+      "navigator",
+      "console",
+      "window"
+  ]
+}

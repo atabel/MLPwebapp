@@ -82,7 +82,9 @@ App.Services = (function(lng, app, undefined) {
             limit: 10,
             safesearch: navigator.config.photos.safeSearch
         };
-        country_code && (options.country_code = country_code);
+        if (country_code) {
+            options.country_code = country_code;
+        }
         App.Notification.show();
         var xhr = get(CONST.LOAD_PHOTO_URL, options, function(res) {
             callback.call(callback, res);
